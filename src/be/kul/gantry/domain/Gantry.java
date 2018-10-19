@@ -6,9 +6,9 @@ package be.kul.gantry.domain;
 public class Gantry {
 
     private final int id;
-    private final int xMin, xMax;
-    private final int startX, startY;
-    private final double xSpeed, ySpeed;
+    private final int xMin,xMax;
+    private final int startX,startY;
+    private final double xSpeed,ySpeed;
 
     public Gantry(int id,
                   int xMin, int xMax,
