@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d47c3604-2fa4-4115-8b52-f8d9de558f39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kul/gantry/domain/Gantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kul/gantry/domain/Gantry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kul/gantry/domain/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kul/gantry/domain/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kul/gantry/domain/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kul/gantry/domain/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kul/gantry/domain/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kul/gantry/domain/Slot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,26 +23,37 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
+          <entry key="java" value="5" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="5" />
           <entry key="JSON" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Gantry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
+            <state relative-caret-position="-40">
               <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding>
+                <element signature="method#Gantry#0;class#Gantry#0" />
                 <element signature="method#getOverlapArea#0;class#Gantry#0" />
               </folding>
             </state>
@@ -47,8 +61,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json">
+        <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Item.java">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Job.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+              <folding>
+                <element signature="docComment;class#Job#0" />
+                <element signature="method#Job#0;class#Job#0" />
+                <element signature="class#Task#0;class#Job#0" />
+                <element signature="method#Task#0;class#Task#0;class#Job#0" />
+                <element signature="method#toString#0;class#Task#0;class#Job#0" />
+                <element signature="class#TaskType#0;class#Job#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Problem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="298" selection-start-line="298" selection-end-line="298" />
+              <folding>
+                <element signature="method#writeJsonFile#0;class#Problem#0" />
+                <element signature="method#fromJson#0;class#Problem#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Slot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-244">
+              <folding>
+                <element signature="method#Slot#0;class#Slot#0" />
+                <element signature="e#1298#1299#0" expanded="true" />
+                <element signature="e#1343#1344#0" expanded="true" />
+                <element signature="e#1380#1381#0" expanded="true" />
+                <element signature="e#1426#1427#0" expanded="true" />
+                <element signature="e#1464#1465#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="class#SlotType#0;class#Slot#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -56,13 +118,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/be/kul/gantry/domain/Job.java" />
+        <option value="$PROJECT_DIR$/src/be/kul/gantry/domain/Problem.java" />
+        <option value="$PROJECT_DIR$/src/be/kul/gantry/domain/Slot.java" />
+        <option value="$PROJECT_DIR$/src/be/kul/gantry/domain/Gantry.java" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1939" />
     <option name="height" value="1049" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -179,14 +253,64 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-723518">
+          <caret line="213" column="6" lean-forward="true" selection-start-line="213" selection-start-column="6" selection-end-line="213" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Slot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <folding>
+            <element signature="method#Slot#0;class#Slot#0" />
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1426#1427#0" expanded="true" />
+            <element signature="e#1464#1465#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="class#SlotType#0;class#Slot#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Gantry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
+        <state relative-caret-position="-40">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding>
+            <element signature="method#Gantry#0;class#Gantry#0" />
             <element signature="method#getOverlapArea#0;class#Gantry#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Item.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Job.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="docComment;class#Job#0" />
+            <element signature="method#Job#0;class#Job#0" />
+            <element signature="class#Task#0;class#Job#0" />
+            <element signature="method#Task#0;class#Task#0;class#Job#0" />
+            <element signature="method#toString#0;class#Task#0;class#Job#0" />
+            <element signature="class#TaskType#0;class#Job#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/kul/gantry/domain/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+          <folding>
+            <element signature="method#writeJsonFile#0;class#Problem#0" />
+            <element signature="method#fromJson#0;class#Problem#0" />
           </folding>
         </state>
       </provider>
