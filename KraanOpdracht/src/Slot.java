@@ -1,14 +1,11 @@
-
-
-/**
- * Created by Wim on 27/04/2015.
- */
 public class Slot {
 
     private final int id;
     private final int centerX, centerY, xMin, xMax, yMin, yMax, z;
     private Item item;
     private final SlotType type;
+    private Slot parentSlot;
+    private Slot childSlot;
 
     public Slot(int id, int centerX, int centerY, int xMin, int xMax, int yMin, int yMax, int z, SlotType type, Item item) {
         this.id = id;
@@ -67,6 +64,23 @@ public class Slot {
         return type;
     }
 
+    public Slot getParentSlot() {
+        return parentSlot;
+    }
+
+    public void setParentSlot(Slot parentSlot) {
+        this.parentSlot = parentSlot;
+        parentSlot.setChildSlot(this);
+    }
+
+    public Slot getChildSlot() {
+        return childSlot;
+    }
+
+    public void setChildSlot(Slot childSlot) {
+        this.childSlot = childSlot;
+    }
+
     public boolean isInputSlot() {
         return type == SlotType.INPUT;
     }
@@ -77,6 +91,15 @@ public class Slot {
 
     public boolean isStorageSlot() {
         return type == SlotType.STORAGE;
+    }
+
+    //Controleren of een slot beschikbaar is om container te plaatsen
+    public boolean isAvailable() {
+        if (this.isStorageSlot() && this.item.equals(null)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

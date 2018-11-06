@@ -1,22 +1,25 @@
+import org.json.simple.parser.ParseException;
+
+import java.io.File;
+import java.io.IOException;
+
 public class Main {
 
+    public static final String INPUT_FILENAME = "1_10_100_4_FALSE_65_50_50.json";
+    public static final String OUTPUT_FILENAME= "Output_Kraanopdracht_Groep4.csv";
+
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
-/*        try {
-            //Problem p=Problem.fromJson(new File("1_1_3_3_FALSE_100_14_14.json"));
+        try {
+            Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
+            System.out.println("Input OK.");
 
-            Problem p = Problem.fromJson(new File("1_50_50_10_FALSE_60_25_100.json"));
-
-            p.prepareSolve();
-            p.solve();
-
-
-        } catch (IOException | ParseException e) {
-            // TODO Auto-generated catch block
+        } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
     }

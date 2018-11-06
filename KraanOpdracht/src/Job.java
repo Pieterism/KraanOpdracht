@@ -1,8 +1,3 @@
-
-
-/**
- * Created by Wim on 12/05/2015.
- */
 public class Job {
 
     private final int id;

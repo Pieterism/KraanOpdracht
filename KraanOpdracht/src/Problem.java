@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by Wim on 27/04/2015.
- */
 public class Problem {
 
     private final int minX, maxX, minY, maxY;
@@ -276,10 +272,21 @@ public class Problem {
                 outputJobList.add(job);
             }
 
-
-            return new Problem(overallMinX, overallMaxX, overallMinY, overallMaxY, maxLevels, itemList, gantryList, slotList, inputJobList, outputJobList, safetyDist, pickupPlaceDuration);
+            Problem p = new Problem(overallMinX, overallMaxX, overallMinY, overallMaxY, maxLevels, itemList, gantryList, slotList, inputJobList, outputJobList, safetyDist, pickupPlaceDuration);
+            p.createSlotField();
+            return p;
         }
 
+    }
+
+    public void createSlotField() {
+        for (Slot s : slots) {
+            for (Slot x : slots) {
+                if (x.getZ() == s.getZ() + 1 && x.getCenterX() == s.getCenterX() && x.getCenterY() == s.getCenterY()) {
+                    s.setParentSlot(x);
+                }
+            }
+        }
     }
 
 

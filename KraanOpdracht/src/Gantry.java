@@ -1,7 +1,3 @@
-
-/**
- * Created by Wim on 27/04/2015.
- */
 public class Gantry {
 
     private final int id;
