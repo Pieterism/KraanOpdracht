@@ -44,8 +44,8 @@ public class Problem {
         this.pickupPlaceDuration = pickupPlaceDuration;
         this.availableSlots = new ArrayList<>();
         this.occupiedSlots = new ArrayList<>();
-        INPUT_SLOT = this.slots.size()-2;
-        OUTPUT_SLOT = this.slots.size()-1;
+        INPUT_SLOT = this.slots.size() - 2;
+        OUTPUT_SLOT = this.slots.size() - 1;
     }
 
     public int getMinX() {
@@ -290,6 +290,7 @@ public class Problem {
 
     }
 
+    //Tree voorstellig van Slotfield
     public void createSlotField() {
         for (Slot s : slots) {
             for (Slot x : slots) {
@@ -301,6 +302,7 @@ public class Problem {
         updateSlots();
     }
 
+    //geeft lijst weer van available slots en occupied slots
     public void updateSlots() {
         for (Slot s : slots) {
             if (s.isAvailable()) {
@@ -311,20 +313,66 @@ public class Problem {
         }
     }
 
+    //geeft slot van bepaald item terug
+    public Slot getSlot(Item item) {
+        for (Slot s : occupiedSlots) {
+            if (s.getItem() == item) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    //verplaatst item naar eerste available slot
+    public void moveItem(Item item) {
+        availableSlots.get(0).putItem(item);
+        occupiedSlots.add(availableSlots.get(0));
+        availableSlots.remove(availableSlots.get(0));
+    }
+
+    //verplaatst item naar output slot
+    public void outputItem(Item item) {
+        Slot s = getSlot(item);
+        occupiedSlots.remove(item);
+        availableSlots.add(getSlot(item));
+        slots.get(OUTPUT_SLOT).putItem(s.getItem());
+
+    }
+
+    //verwijdert item uit een slot + houdt rekening met bovenliggende items
+    public void removeItem(Item item) {
+        Slot s = getSlot(item);
+
+        if (s.isTopSlot()){
+            outputItem(item);
+        }else{
+            if (s.hasAbove()){
+                removeItem(s.getParentSlot().getItem());
+            }else {
+                outputItem(item);
+            }
+        }
+    }
+
+    //oplossing: eerst input doorlopen, achteraf output, kan aangepast worden!
     public void solve() {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
 
-            availableSlots.get(0).putItem(item);
-            occupiedSlots.add(availableSlots.get(0));
-            availableSlots.remove(availableSlots.get(0));
+            moveItem(item);
 
-            System.out.println("Moved " +item.toString() +" to " + occupiedSlots.get(occupiedSlots.size()-1));
+            System.out.println("Moved " + item.toString() + " from " + slots.get(INPUT_SLOT) + " to " + occupiedSlots.get(occupiedSlots.size() - 1));
 
         }
 
-        for (Job j : outputJobSequence){
-            
+        for (Job j : outputJobSequence) {
+            Item item = j.getItem();
+            Slot s = getSlot(item);
+
+            removeItem(item);
+
+            System.out.println("Removed " + item.toString() + " from " + s.toString() + " to " + slots.get(OUTPUT_SLOT));
+
         }
     }
 

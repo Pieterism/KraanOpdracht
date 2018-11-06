@@ -15,7 +15,6 @@ public class Main {
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
             p.solve();
-            System.out.println(p.getSlots().get(4000).toString());
 
 
             System.out.println("Input OK.");

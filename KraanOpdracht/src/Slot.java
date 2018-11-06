@@ -7,6 +7,7 @@ public class Slot {
     private Slot parentSlot;
     private Slot childSlot;
 
+
     public Slot(int id, int centerX, int centerY, int xMin, int xMax, int yMin, int yMax, int z, SlotType type, Item item) {
         this.id = id;
         this.centerX = centerX;
@@ -97,6 +98,14 @@ public class Slot {
         if (this.z == 0) {
             return true;
         } else return false;
+    }
+
+    public boolean isTopSlot() {
+        if (this.getParentSlot() == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //Controleren of een slot beschikbaar is om container te plaatsen
