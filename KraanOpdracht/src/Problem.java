@@ -315,8 +315,16 @@ public class Problem {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
 
-            System.out.println(item.toString());
+            availableSlots.get(0).putItem(item);
+            occupiedSlots.add(availableSlots.get(0));
+            availableSlots.remove(availableSlots.get(0));
 
+            System.out.println("Moved " +item.toString() +" to " + occupiedSlots.get(occupiedSlots.size()-1));
+
+        }
+
+        for (Job j : outputJobSequence){
+            
         }
     }
 
