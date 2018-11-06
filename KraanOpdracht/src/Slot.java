@@ -93,12 +93,26 @@ public class Slot {
         return type == SlotType.STORAGE;
     }
 
+    public boolean isBottomSlot() {
+        if (this.z == 0) {
+            return true;
+        } else return false;
+    }
+
     //Controleren of een slot beschikbaar is om container te plaatsen
     public boolean isAvailable() {
-        if (this.isStorageSlot() && this.item == null) {
-            return true;
+        if (this.isBottomSlot()) {
+            if (this.isStorageSlot() && this.item == null) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            if (this.isStorageSlot() && this.item == null && !this.getChildSlot().isAvailable()) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
