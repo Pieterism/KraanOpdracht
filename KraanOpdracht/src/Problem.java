@@ -12,9 +12,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Problem {
 
-    private final int minX, maxX, minY, maxY;
+    private final int minX, maxX, minY, maxY, INPUT_SLOT, OUTPUT_SLOT;
     private final int maxLevels;
     private final List<Item> items;
     private final List<Job> inputJobSequence;
@@ -26,6 +27,7 @@ public class Problem {
     private final int pickupPlaceDuration;
 
     List<Slot> availableSlots;
+    List<Slot> occupiedSlots;
 
     public Problem(int minX, int maxX, int minY, int maxY, int maxLevels, List<Item> items, List<Gantry> gantries, List<Slot> slots, List<Job> inputJobSequence, List<Job> outputJobSequence, int gantrySafetyDist, int pickupPlaceDuration) {
         this.minX = minX;
@@ -41,6 +43,9 @@ public class Problem {
         this.safetyDistance = gantrySafetyDist;
         this.pickupPlaceDuration = pickupPlaceDuration;
         this.availableSlots = new ArrayList<>();
+        this.occupiedSlots = new ArrayList<>();
+        INPUT_SLOT = this.slots.size()-2;
+        OUTPUT_SLOT = this.slots.size()-1;
     }
 
     public int getMinX() {
@@ -280,7 +285,6 @@ public class Problem {
 
             Problem p = new Problem(overallMinX, overallMaxX, overallMinY, overallMaxY, maxLevels, itemList, gantryList, slotList, inputJobList, outputJobList, safetyDist, pickupPlaceDuration);
             p.createSlotField();
-            p.updateAvailableSlots();
             return p;
         }
 
@@ -294,15 +298,25 @@ public class Problem {
                 }
             }
         }
-
-
+        updateSlots();
     }
 
-    public void updateAvailableSlots() {
+    public void updateSlots() {
         for (Slot s : slots) {
             if (s.isAvailable()) {
                 this.availableSlots.add(s);
+            } else {
+                this.occupiedSlots.add(s);
             }
+        }
+    }
+
+    public void solve() {
+        for (Job j : inputJobSequence) {
+            Item item = j.getItem();
+
+            System.out.println(item.toString());
+
         }
     }
 

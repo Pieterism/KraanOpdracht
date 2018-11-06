@@ -56,7 +56,7 @@ public class Slot {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void putItem(Item item) {
         this.item = item;
     }
 
@@ -113,6 +113,15 @@ public class Slot {
             } else {
                 return false;
             }
+        }
+    }
+
+    //Controleren of er items in bovenliggende slots zitten
+    public boolean hasAbove() {
+        if (this.getParentSlot().getItem() == null) {
+            return false;
+        } else {
+            return true;
         }
     }
 

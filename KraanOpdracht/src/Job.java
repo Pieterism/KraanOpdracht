@@ -33,6 +33,10 @@ public class Job {
         return item;
     }
 
+    public void execute(){
+
+    }
+
     @Override
     public String toString() {
         return String.format("J%d move %d from %s to %s", id, item.getId(), pickup.slot, place.slot);
@@ -78,6 +82,7 @@ public class Job {
                 return String.format("Place %d at %s", Job.this.item.getId(), slot);
             }
         }
+
     }
 
     public static enum TaskType {
