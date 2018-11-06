@@ -95,7 +95,7 @@ public class Slot {
 
     //Controleren of een slot beschikbaar is om container te plaatsen
     public boolean isAvailable() {
-        if (this.isStorageSlot() && this.item.equals(null)) {
+        if (this.isStorageSlot() && this.item == null) {
             return true;
         } else {
             return false;

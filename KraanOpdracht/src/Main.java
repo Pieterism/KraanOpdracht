@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
             System.out.println("Input OK.");

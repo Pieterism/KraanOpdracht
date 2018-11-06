@@ -1,4 +1,3 @@
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.simple.JSONArray;
@@ -26,6 +25,8 @@ public class Problem {
     private final int safetyDistance;
     private final int pickupPlaceDuration;
 
+    List<Slot> availableSlots;
+
     public Problem(int minX, int maxX, int minY, int maxY, int maxLevels, List<Item> items, List<Gantry> gantries, List<Slot> slots, List<Job> inputJobSequence, List<Job> outputJobSequence, int gantrySafetyDist, int pickupPlaceDuration) {
         this.minX = minX;
         this.maxX = maxX;
@@ -39,6 +40,7 @@ public class Problem {
         this.outputJobSequence = new ArrayList<>(outputJobSequence);
         this.safetyDistance = gantrySafetyDist;
         this.pickupPlaceDuration = pickupPlaceDuration;
+        this.availableSlots = new ArrayList<>();
     }
 
     public int getMinX() {
@@ -174,6 +176,10 @@ public class Problem {
 
     }
 
+    public List<Slot> getAvailableSlots() {
+        return availableSlots;
+    }
+
     public static Problem fromJson(File file) throws IOException, ParseException {
 
 
@@ -274,6 +280,7 @@ public class Problem {
 
             Problem p = new Problem(overallMinX, overallMaxX, overallMinY, overallMaxY, maxLevels, itemList, gantryList, slotList, inputJobList, outputJobList, safetyDist, pickupPlaceDuration);
             p.createSlotField();
+            p.updateAvailableSlots();
             return p;
         }
 
@@ -285,6 +292,16 @@ public class Problem {
                 if (x.getZ() == s.getZ() + 1 && x.getCenterX() == s.getCenterX() && x.getCenterY() == s.getCenterY()) {
                     s.setParentSlot(x);
                 }
+            }
+        }
+
+
+    }
+
+    public void updateAvailableSlots() {
+        for (Slot s : slots) {
+            if (s.isAvailable()) {
+                this.availableSlots.add(s);
             }
         }
     }
