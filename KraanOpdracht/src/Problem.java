@@ -290,7 +290,7 @@ public class Problem {
 
     }
 
-    //Tree voorstellig van Slotfield
+    //linked-list voorstellig van slot veld
     public void createSlotField() {
         for (Slot s : slots) {
             for (Slot x : slots) {
@@ -302,7 +302,7 @@ public class Problem {
         updateSlots();
     }
 
-    //geeft lijst weer van available slots en occupied slots
+    //update lijst weer van available slots en occupied slots
     public void updateSlots() {
         for (Slot s : slots) {
             if (s.isAvailable()) {
@@ -339,22 +339,22 @@ public class Problem {
 
     }
 
-    //verwijdert item uit een slot + houdt rekening met bovenliggende items
+    //verwijdert item uit een slot + houdt rekening met bovenliggende items (verplaatst eerst bovenliggende items naar eerst available slot)
     public void removeItem(Item item) {
         Slot s = getSlot(item);
 
-        if (s.isTopSlot()){
+        if (s.isTopSlot()) {
             outputItem(item);
-        }else{
-            if (s.hasAbove()){
+        } else {
+            if (s.hasAbove()) {
                 removeItem(s.getParentSlot().getItem());
-            }else {
+            } else {
                 outputItem(item);
             }
         }
     }
 
-    //oplossing: eerst input doorlopen, achteraf output, kan aangepast worden!
+    //oplossing: eerst input doorlopen, achteraf output behandelen
     public void solve() {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
