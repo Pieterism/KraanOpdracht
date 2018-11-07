@@ -14,7 +14,7 @@ public class Main {
 
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
-            p.solve();
+            p.solve(OUTPUT_FILENAME);
 
 
             System.out.println("Input OK.");
