@@ -45,6 +45,7 @@ public class Problem {
         this.pickupPlaceDuration = pickupPlaceDuration;
         this.availableSlots = new ArrayList<>();
         this.occupiedSlots = new ArrayList<>();
+        this.executedMoves = new ArrayList<>();
         INPUT_SLOT = this.slots.size() - 2;
         OUTPUT_SLOT = this.slots.size() - 1;
     }
