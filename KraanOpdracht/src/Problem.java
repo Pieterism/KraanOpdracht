@@ -27,6 +27,7 @@ public class Problem {
 
     List<Slot> availableSlots;
     List<Slot> occupiedSlots;
+    List<Slot> temporaryDisabledSlots;
     List<Move> executedMoves;
 
     public Problem(int minX, int maxX, int minY, int maxY, int maxLevels, List<Item> items, List<Gantry> gantries, List<Slot> slots, List<Job> inputJobSequence, List<Job> outputJobSequence, int gantrySafetyDist, int pickupPlaceDuration) {
@@ -44,6 +45,7 @@ public class Problem {
         this.pickupPlaceDuration = pickupPlaceDuration;
         this.availableSlots = new ArrayList<>();
         this.occupiedSlots = new ArrayList<>();
+        this.temporaryDisabledSlots = new ArrayList<>();
         this.executedMoves = new ArrayList<>();
         setInputOutputSlots();
     }
@@ -329,24 +331,34 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
-    //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verwijderen)
+    //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verplaatsen)
     public void pickupItem(Gantry gantry, Slot s) {
-        executedMoves.add(gantry.pickupItem(s));
+
+        if (s.isTopSlot()) {
+            executedMoves.add(gantry.pickupItem(s));
+        } else {
+            if (s.hasAbove()) {
+                temporaryDisabledSlots.add(s.getParentSlot());
+                pickupItem(gantry, s.getParentSlot());
+            } else {
+                executedMoves.add(gantry.pickupItem(s));
+            }
+        }
     }
 
-    //Methode om gewenst item op de pikken uit slot s
+    //Methode item in gantru te plaatsen in slot s
     public void placeItem(Gantry gantry, Slot s) {
         executedMoves.add(gantry.placeItem(s));
+        disableSlot(s);
     }
 
-    //TODO: item verplaatsen van slot s1 naar slot s2
-    public void moveItem(Gantry gantry,Slot s1, Slot s2) {
+    //Methode op item te verplaatsen van slot s1 naar slot s2
+    public void moveItem(Gantry gantry, Slot s1, Slot s2) {
         moveGantry(gantry, s1);
         pickupItem(gantry, s1);
         enableSlot(s1);
-        moveGantry(gantry,s2);
-        placeItem(gantry,s2);
-        disableSlot(s2);
+        moveGantry(gantry, s2);
+        placeItem(gantry, s2);
     }
 
     //Item oppikken op INPUT_SLOT en verplaatsen naar first available slot
@@ -360,50 +372,7 @@ public class Problem {
 
     //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
-        moveGantry(gantry, s);
-        pickupItem(gantry, s);
-        enableSlot(s);
-        moveGantry(gantry, OUTPUT_SLOT);
-        placeItem(gantry, OUTPUT_SLOT);
-    }
-
-    //verwijdert item uit een slot + houdt rekening met bovenliggende items (verplaatst eerst bovenliggende items naar eerst available slot)
-    //TODO
-   /* public void removeItem(Item item) {
-        Slot s = getSlot(item);
-
-        if (s.isTopSlot()) {
-            outputItem(item);
-        } else {
-            if (s.hasAbove()) {
-                removeItem(s.getParentSlot().getItem());
-            } else {
-                outputItem(item);
-            }
-        }
-    }*/
-
-    //TODO
-    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
-    public void solve(String output) {
-
-        Gantry input_gantry = gantries.get(0);
-        Gantry output_gantry = gantries.get(0);
-
-        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
-        executedMoves.add(start);
-
-        for (Job j : inputJobSequence) {
-            Item item = j.getItem();
-            INPUT_SLOT.putItem(item);
-            inputItem(input_gantry, availableSlots.get(0));
-
-        }
-
-        for (Job j : outputJobSequence) {
-            Item item = j.getItem();
-            outputItem(output_gantry, getSlot(item));
-        }
+        moveItem(gantry,s,OUTPUT_SLOT);
     }
 
     public void printMoves() {
@@ -444,14 +413,47 @@ public class Problem {
         }
     }
 
+    //add slot to temporary disables slots list for removing parent container slots
+    public void tempDisableslot(Slot s){
+        availableSlots.remove(s);
+        temporaryDisabledSlots.add(s);
+    }
+
+    //add slot to occupied slots list and remove from available slots list
     public void disableSlot(Slot s) {
         availableSlots.remove(s);
         occupiedSlots.add(s);
     }
 
+    //add slot to available slots list and remove from occupied slots list
     public void enableSlot(Slot s) {
         availableSlots.add(s);
         s.removeItem();
         occupiedSlots.remove(s);
+    }
+
+    //TODO
+    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+    public void solve(String output) {
+
+        Gantry input_gantry = gantries.get(0);
+        Gantry output_gantry = gantries.get(0);
+
+        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
+        executedMoves.add(start);
+
+        for (Job j : inputJobSequence) {
+            Item item = j.getItem();
+            INPUT_SLOT.putItem(item);
+
+
+            inputItem(input_gantry, availableSlots.get(0));
+
+        }
+
+        for (Job j : outputJobSequence) {
+            Item item = j.getItem();
+            outputItem(output_gantry, getSlot(item));
+        }
     }
 }

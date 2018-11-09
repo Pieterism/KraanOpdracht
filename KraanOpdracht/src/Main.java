@@ -15,7 +15,6 @@ public class Main {
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
             p.solve(OUTPUT_FILENAME);
-            p.moveItem(p.getGantries().get(0),p.occupiedSlots.get(0), p.availableSlots.get(0));
             p.createCSV(OUTPUT_FILENAME);
 
             System.out.println("Input OK.");
