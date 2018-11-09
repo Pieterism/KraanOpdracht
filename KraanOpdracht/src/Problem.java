@@ -331,7 +331,7 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
-    //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verplaatsen)
+    //TODO: controleren of het item direct opgepakt kan worden, ander eerst containers verplaatsen + toevoegen aan temporarydisabledSlots
     public void pickupItem(Gantry gantry, Slot s) {
 
         if (s.isTopSlot()) {
@@ -347,6 +347,7 @@ public class Problem {
     }
 
     //Methode om item in gantry te plaatsen in slot s
+    //TODO: controleren of slot available is om container te plaatsen
     public void placeItem(Gantry gantry, Slot s) {
         executedMoves.add(gantry.placeItem(s));
         disableSlot(s);
@@ -445,7 +446,6 @@ public class Problem {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
             INPUT_SLOT.putItem(item);
-
 
             inputItem(input_gantry, availableSlots.get(0));
 
