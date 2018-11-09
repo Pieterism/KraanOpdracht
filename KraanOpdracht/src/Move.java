@@ -3,6 +3,15 @@ public class Move {
     int gantryID, x, y, itemInCraneID;
     double time;
 
+
+    public Move(int gantryID, int x, int y, Item item, double time) {
+        this.gantryID = gantryID;
+        this.x = x;
+        this.y = y;
+        this.itemInCraneID = itemInCraneID;
+        this.time = time;
+    }
+
     public int getGantryID() {
         return gantryID;
     }

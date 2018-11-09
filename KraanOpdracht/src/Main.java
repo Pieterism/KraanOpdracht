@@ -13,7 +13,7 @@ public class Main {
         try {
 
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
-
+            p.elementaryGantryMove(p.getGantries().get(0), p.getSlots().get(0), p.getSlots().get(5),null);
             p.solve(OUTPUT_FILENAME);
 
 

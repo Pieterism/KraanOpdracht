@@ -324,6 +324,37 @@ public class Problem {
         return null;
     }
 
+    public void elementaryGantryMove(Gantry gantry, Slot from, Slot to, Item item){
+        int fromX = from.getCenterX();
+        int fromY = from.getCenterY();
+        int toX = to.getCenterX();
+        int toY = to.getCenterY();
+        int deltaX = Math.abs(toX - fromX);
+        int deltaY = Math.abs(toY - fromY);
+        double time = Math.max(deltaX/gantry.getXSpeed(), deltaY/gantry.getYSpeed());
+
+        executedMoves.add(new Move(gantry,toX,toY,item,time));
+
+    }
+
+
+/*
+    public void moveItem(Slot from, Slot to, Item item){
+        if(from.equals(INPUT_SLOT)){
+
+            availableSlots.remove(to);
+        }
+        else if(from == OUTPUT_SLOT){
+
+        }
+        else{
+
+        }
+
+
+
+    }
+*/
     //verplaatst item naar eerste available slot
     public void moveItem(Item item) {
         availableSlots.get(0).putItem(item);
