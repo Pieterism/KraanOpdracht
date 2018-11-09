@@ -1,64 +1,39 @@
 public class Move {
 
-    int x, y;
-    Item item;
-    Gantry gantry;
-    double time;
+    private Item item;
+    private Gantry gantry;
+    private Slot from;
+    private Slot to;
 
-    public Move(Gantry gantry, double time, int x, int y, Item item) {
-        this.x = x;
-        this.y = y;
+    public Move(Item item, Gantry gantry, Slot from, Slot to) {
         this.item = item;
         this.gantry = gantry;
-        this.time = time;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+        this.from = from;
+        this.to = to;
     }
 
     public Item getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
     public Gantry getGantry() {
         return gantry;
     }
 
-    public void setGantry(Gantry gantry) {
-        this.gantry = gantry;
+    public Slot getFrom() {
+        return from;
     }
 
-    public double getTime() {
-        return time;
+    public Slot getTo() {
+        return to;
     }
 
-    public void setTime(double time) {
-        this.time = time;
-    }
     @Override
     public String toString() {
         return "Move{" +
                 "" + gantry.getId() +
-                ", " + time +
-                ", " + x +
-                ", " + y +
+                ", " + from +
+                ", " + to +
                 ", " + item +
                 '}';
     }

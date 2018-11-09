@@ -17,7 +17,6 @@ public class Main {
             p.solve(OUTPUT_FILENAME);
 
 
-            System.out.println("Input OK.");
 
         } catch (IOException e) {
             e.printStackTrace();

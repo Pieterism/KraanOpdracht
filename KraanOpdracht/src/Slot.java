@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Slot {
 
     private final int id;
@@ -132,6 +135,41 @@ public class Slot {
         } else {
             return true;
         }
+    }
+
+
+    public List<Slot> getInterferingSlots(){
+        // returnt alle slots die interfereren met het slot waar het item zit dat verplaatst moet worden
+        // niet enkel die waar een item is
+        List<Slot> lijst = new ArrayList<Slot>();
+        Slot temp = this;
+        while(!temp.isTopSlot()){
+            temp = temp.parentSlot;
+            lijst.add(temp);
+        }
+        return lijst;
+    }
+
+
+
+    public List<Slot> getAddedAvailableSlotsPlace(){
+        // door een container op een slot te plaatsen, kunnen er slots available worden
+        // bij de gestapelde containers is dit het parent slot van het slot waar er net een item is geplaatst
+        // (behalve als topslot)
+        List<Slot> list = new ArrayList<Slot>();
+        if(isTopSlot()) return list;
+        else list.add(parentSlot);
+        return list;
+    }
+
+    public List<Slot> getRemovedAvailableSlotsPickUp(){
+        // door een container op te halen van een slot, kunnen er available slots verdwijnen
+        // bij de gestapelde containers is dit de parent van het slot van het te verwijderen item
+        // (behalve als topslot)
+        List<Slot> list = new ArrayList<Slot>();
+        if(isTopSlot()) return list;
+        else list.add(parentSlot);
+        return list;
     }
 
     @Override

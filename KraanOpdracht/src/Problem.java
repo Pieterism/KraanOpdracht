@@ -12,10 +12,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// naamgeving: availableSlots zijn slots waar er direct een item in geplaatst kan worden zonder dat het item 'valt'
 public class Problem {
 
-    private final int minX, maxX, minY, maxY, INPUT_SLOT, OUTPUT_SLOT;
+    private final int minX, maxX, minY, maxY;
+    private final Slot INPUT_SLOT, OUTPUT_SLOT;
     private final int maxLevels;
     private final List<Item> items;
     private final List<Job> inputJobSequence;
@@ -46,8 +47,8 @@ public class Problem {
         this.availableSlots = new ArrayList<>();
         this.occupiedSlots = new ArrayList<>();
         this.executedMoves = new ArrayList<>();
-        INPUT_SLOT = this.slots.size() - 2;
-        OUTPUT_SLOT = this.slots.size() - 1;
+        INPUT_SLOT = slots.get(this.slots.size() - 2);
+        OUTPUT_SLOT = slots.get(this.slots.size() - 1);
     }
 
     public int getMinX() {
@@ -325,76 +326,111 @@ public class Problem {
         return null;
     }
 
-    //verplaatst item naar eerste available slot
-    public void moveItem(Item item) {
-        availableSlots.get(0).putItem(item);
-        occupiedSlots.add(availableSlots.get(0));
-        availableSlots.remove(availableSlots.get(0));
+    public Slot getAvailableNonInterferingSlot(List<Slot> interferingSlots){
+        int i =0;
+        while(i<availableSlots.size()) {
+            Slot available = availableSlots.get(i);
+            if(!interferingSlots.contains(available)) return available;
+            i++;
+        }
+        return null;
     }
 
-    //Item oppikken op input slot en verplaatsen naar first available slot
-    public void inputItem(){
+    // move item from slot to another slot
+    // bestaat uit een pickup en een place
+    public void moveItem(Gantry gantry, Slot from, Slot to, Item item){
+        pickUpItemFromSlot(from);
+        placeItemInSlot(item,to);
+        executedMoves.add(new Move(item,gantry,from,to));
+    }
+
+    public void pickUpItemFromSlot(Slot from){
+        // item ophalen uit slot
+        if(from.equals(INPUT_SLOT)) return;
+
+        // slot is niet meer occupied, en wordt available
+        from.putItem(null);
+        occupiedSlots.remove(from);
+        availableSlots.add(from);
+
+        // er kunnen slots zijn die available waren, maar dit niet meer zijn na ophaling item
+        // bij de gestapelde is dat het slot boven het slot van het op te halen item,(als het laatste geen topSlot is)
+        availableSlots.removeAll(from.getRemovedAvailableSlotsPickUp());
 
     }
 
-    //verplaatst item naar output slot
-    public void outputItem(Item item) {
-        Slot s = getSlot(item);
-        occupiedSlots.remove(item);
-        availableSlots.add(getSlot(item));
-        slots.get(OUTPUT_SLOT).putItem(s.getItem());
+
+    public void placeItemInSlot(Item item, Slot to){
+        if(to.equals(OUTPUT_SLOT)) return;
+
+        // slot krijgt item, wordt occupied, en wordt niet meer available
+        to.putItem(item);
+        occupiedSlots.add(to);
+        availableSlots.remove(to);
+
+        // er kunnen slots zijn die available worden na het plaatsen van een item
+        // bij de gestapelde is dat het slot boven het slot van het geplaatste item,(als het laatste geen topSlot is)
+        availableSlots.removeAll(to.getAddedAvailableSlotsPlace());
 
     }
 
-    //verwijdert item uit een slot + houdt rekening met bovenliggende items (verplaatst eerst bovenliggende items naar eerst available slot)
-    public void removeItem(Item item) {
-        Slot s = getSlot(item);
 
-        if (s.isTopSlot()) {
-            outputItem(item);
-        } else {
-            if (s.hasAbove()) {
-                removeItem(s.getParentSlot().getItem());
-            } else {
-                outputItem(item);
-            }
+    public void processInputJob(Gantry gantry, Item item){
+        // move item naar vrije plaats
+        Slot availableSlot = availableSlots.get(0);
+        moveItem(gantry, INPUT_SLOT, availableSlot, item);
+    }
+
+    public void processOutputJob(Gantry gantry, Item item, Slot slotVanTeVerplaatsenItem){
+        // move item naar outut, eerst interfererende items verplaatsen naar niet-interfererende slots
+
+        // slot is bereikbaar als het een topSlot is of als zijn parent available is
+        if(slotVanTeVerplaatsenItem.isTopSlot() || availableSlots.contains(slotVanTeVerplaatsenItem.getParentSlot()))
+            moveItem(gantry,slotVanTeVerplaatsenItem,OUTPUT_SLOT,item);
+
+        else{
+            // slot is niet available
+            // interfererende slots vinden om te voorkomen dat we items verplaatsen naar slots die interfereren
+            List<Slot> interferingSlots = slotVanTeVerplaatsenItem.getInterferingSlots();
+
+            // interfering items verplaatsen
+            moveInterferingItemsRecursief(slotVanTeVerplaatsenItem.getParentSlot(), interferingSlots, gantry);
+
+            // verplaatsen van het item (dat nu bereikbaar is)
+            moveItem(gantry,slotVanTeVerplaatsenItem,OUTPUT_SLOT,item);
+
+
         }
     }
 
-    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+    public void moveInterferingItemsRecursief(Slot s, List<Slot> interferingSlots, Gantry gantry){
+        // als het slot geen topslot is en het slot heeft een parent met een item in, recursief oproepen voor die parent
+        if(!s.isTopSlot() && s.hasAbove())
+            moveInterferingItemsRecursief(s.getParentSlot(),interferingSlots,gantry);
+
+        // het item in slot s moet verplaatst worden naar een available non interfering slot
+        Slot available = getAvailableNonInterferingSlot(interferingSlots);
+        moveItem(gantry,s,available,s.getItem());
+    }
+
+
+    //oplossing: eerst inputsequentie doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
 
-        Gantry input_gantry = gantries.get(0);
-        Gantry output_gantry = gantries.get(0);
-
-        Move start = new Move(input_gantry,0, input_gantry.getStartX(), input_gantry.getStartY(), null);
-        executedMoves.add(start);
+        Gantry gantry = gantries.get(0);
 
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
-
-            moveItem(item);
-
-            //System.out.println("Moved " + item.toString() + " from " + slots.get(INPUT_SLOT) + " to " + occupiedSlots.get(occupiedSlots.size() - 1));
-
+            processInputJob(gantry,item);
         }
 
         for (Job j : outputJobSequence) {
             Item item = j.getItem();
-            Slot s = getSlot(item);
-
-            removeItem(item);
-
-            //System.out.println("Removed " + item.toString() + " from " + s.toString() + " to " + slots.get(OUTPUT_SLOT));
-
+            Slot slot = getSlot(item);
+            processOutputJob(gantry,item,slot);
         }
-        printMoves();
-    }
 
-    public void printMoves(){
-        for (Move m : executedMoves){
-            System.out.println(m.toString());
-        }
-    }
+        for(Move m: executedMoves) System.out.println(m);
 
+    }
 }
