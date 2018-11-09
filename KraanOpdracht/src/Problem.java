@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Problem {
 
-    private final int minX, maxX, minY, maxY, INPUT_SLOT, OUTPUT_SLOT;
+    private final int minX, maxX, minY, maxY;
     private final int maxLevels;
     private final List<Item> items;
     private final List<Job> inputJobSequence;
@@ -25,6 +25,8 @@ public class Problem {
     private final List<Slot> slots;
     private final int safetyDistance;
     private final int pickupPlaceDuration;
+
+    Slot OUTPUT_SLOT, INPUT_SLOT;
 
     List<Slot> availableSlots;
     List<Slot> occupiedSlots;
@@ -46,8 +48,7 @@ public class Problem {
         this.availableSlots = new ArrayList<>();
         this.occupiedSlots = new ArrayList<>();
         this.executedMoves = new ArrayList<>();
-        INPUT_SLOT = this.slots.size() - 2;
-        OUTPUT_SLOT = this.slots.size() - 1;
+        setInputOutputSlots();
     }
 
     public int getMinX() {
@@ -325,16 +326,45 @@ public class Problem {
         return null;
     }
 
-    //verplaatst item naar eerste available slot
-    public void moveItem(Item item) {
-        availableSlots.get(0).putItem(item);
-        occupiedSlots.add(availableSlots.get(0));
-        availableSlots.remove(availableSlots.get(0));
+    //Verplaatsen van een Item tussen 2 slots en tijd hiervan berekenen
+    //Geen controle of er bovenliggende items zijn!
+    public void moveGantry(Gantry gantry, Slot van, Slot naar) {
+        double xTime = (Math.abs(naar.getCenterX() - van.getCenterX())) / gantry.getXSpeed();
+        double yTime = (Math.abs(naar.getCenterY() - van.getCenterY())) / gantry.getYSpeed();
+
+        double time = getLastMove().getTime() + Math.max(xTime, yTime);
+
+        //Move move = new Move(gantry, time, naar.getCenterX(), naar.getCenterY());
+        //executedMoves.add(move);
+    }
+
+    //Methode om gewenst item op de pikken uit zijn  slot
+    //TODO: test!
+    public void pickupItem(Gantry gantry, Item i) {
+        Move m = getLastMove();
+
+        Slot van = getSlot(m.getItem());
+        Slot naar = getSlot(i);
+
+        moveGantry(gantry, van, naar);
+
+        gantry.addItem(naar.getItem());
+        //Move move = new Move(gantry, getLastMove().getTime()+10, naar.getCenterX(), naar.getCenterY());
+        //executedMoves.add(move);
+
+        /*TODO: 1. Move naar juiste locatie (telt zelf de tijd)
+                2. Neem item uit deze locatie (slot) + 10s
+                3. voeg deze actie toe aan executedMoves
+         */
+
     }
 
     //Item oppikken op input slot en verplaatsen naar first available slot
-    public void inputItem(){
-
+    public void inputItem(Gantry gantry) {
+        gantry.moveTo(INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY());
+        executedMoves.add(new Move(gantry, gantry.getX(), gantry.getY()));
+        gantry.pickupItem(INPUT_SLOT);
+        executedMoves.add(new Move(gantry,INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY()));
     }
 
     //verplaatst item naar output slot
@@ -342,7 +372,7 @@ public class Problem {
         Slot s = getSlot(item);
         occupiedSlots.remove(item);
         availableSlots.add(getSlot(item));
-        slots.get(OUTPUT_SLOT).putItem(s.getItem());
+        OUTPUT_SLOT.putItem(s.getItem());
 
     }
 
@@ -361,39 +391,52 @@ public class Problem {
         }
     }
 
-    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+   //TODO
+   //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
 
         Gantry input_gantry = gantries.get(0);
         Gantry output_gantry = gantries.get(0);
 
-        Move start = new Move(input_gantry,0, input_gantry.getStartX(), input_gantry.getStartY(), null);
+        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
         executedMoves.add(start);
 
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
-
-            moveItem(item);
-
-            //System.out.println("Moved " + item.toString() + " from " + slots.get(INPUT_SLOT) + " to " + occupiedSlots.get(occupiedSlots.size() - 1));
-
+            INPUT_SLOT.putItem(item);
+            input_gantry.moveTo(INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY());
+            input_gantry.pickupItem(INPUT_SLOT);
+            //input_gantry.placeItem(availableSlots.get(0));
         }
 
         for (Job j : outputJobSequence) {
             Item item = j.getItem();
             Slot s = getSlot(item);
 
-            removeItem(item);
-
-            //System.out.println("Removed " + item.toString() + " from " + s.toString() + " to " + slots.get(OUTPUT_SLOT));
 
         }
         printMoves();
     }
 
-    public void printMoves(){
-        for (Move m : executedMoves){
+    public void printMoves() {
+        for (Move m : executedMoves) {
             System.out.println(m.toString());
+        }
+    }
+
+    public Move getLastMove() {
+        Move m = executedMoves.get(executedMoves.size() - 1);
+        return m;
+    }
+
+    public void setInputOutputSlots(){
+        for(Slot s: slots){
+            if(s.getType() == Slot.SlotType.INPUT){
+                INPUT_SLOT = s;
+            }
+            if (s.getType() == Slot.SlotType.OUTPUT){
+                OUTPUT_SLOT = s;
+            }
         }
     }
 

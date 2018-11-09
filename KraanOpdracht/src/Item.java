@@ -10,11 +10,10 @@ public class Item {
         return id;
     }
 
-    public String printID (){
-        if (this.equals(null)){
+    public String printID() {
+        if (this.equals(null)) {
             return "null";
-        }
-        else {
+        } else {
             return "" + id;
         }
     }
