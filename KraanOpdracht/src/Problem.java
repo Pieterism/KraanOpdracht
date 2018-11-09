@@ -331,6 +331,7 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
+    //TODO: werkt nog niet genoeg om eerst bovenliggende containers te verwijderen. 
     public void pickupItem(Gantry gantry, Slot s) {
         temporaryDisabledSlots.clear();
         if (s == INPUT_SLOT || s.isTopSlot()) {
@@ -341,14 +342,16 @@ public class Problem {
     }
 
     //Methode om Parent slots te verwijderen om gewenste slot bereikbaar te maken
-    //TODO: nakijken! Recursie
+    //TODO: Recursie klo
     public void moveParents(Gantry gantry, Slot s) {
+        Slot temp = s;
         while (!s.isTopSlot()) {
             s = s.getParentSlot();
             moveParents(gantry, s);
-        }
-        moveItem(gantry, s, availableSlots.get(0));
+            moveItem(gantry, s, availableSlots.get(0));
 
+        }
+        pickupItem(gantry, temp);
     }
 
     //Methode om item in gantry te plaatsen in slot s
