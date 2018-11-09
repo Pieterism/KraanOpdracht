@@ -328,43 +328,26 @@ public class Problem {
 
     //Verplaatsen van een Item tussen 2 slots en tijd hiervan berekenen
     //Geen controle of er bovenliggende items zijn!
-    public void moveGantry(Gantry gantry, Slot van, Slot naar) {
-        double xTime = (Math.abs(naar.getCenterX() - van.getCenterX())) / gantry.getXSpeed();
-        double yTime = (Math.abs(naar.getCenterY() - van.getCenterY())) / gantry.getYSpeed();
-
-        double time = getLastMove().getTime() + Math.max(xTime, yTime);
-
-        //Move move = new Move(gantry, time, naar.getCenterX(), naar.getCenterY());
-        //executedMoves.add(move);
+    public void moveGantry(Gantry gantry, Slot naar) {
+        executedMoves.add(gantry.moveTo(naar.getCenterX(),naar.getCenterY()));
     }
 
-    //Methode om gewenst item op de pikken uit zijn  slot
-    //TODO: test!
-    public void pickupItem(Gantry gantry, Item i) {
-        Move m = getLastMove();
+    //Methode om gewenst item op de pikken uit slot s
+    public void pickupItem(Gantry gantry, Slot s) {
+        executedMoves.add(gantry.pickupItem(s));
+    }
 
-        Slot van = getSlot(m.getItem());
-        Slot naar = getSlot(i);
-
-        moveGantry(gantry, van, naar);
-
-        gantry.addItem(naar.getItem());
-        //Move move = new Move(gantry, getLastMove().getTime()+10, naar.getCenterX(), naar.getCenterY());
-        //executedMoves.add(move);
-
-        /*TODO: 1. Move naar juiste locatie (telt zelf de tijd)
-                2. Neem item uit deze locatie (slot) + 10s
-                3. voeg deze actie toe aan executedMoves
-         */
-
+    //Methode om gewenst item op de pikken uit slot s
+    public void placeItem(Gantry gantry, Slot s) {
+        executedMoves.add(gantry.placeItem(s));
     }
 
     //Item oppikken op input slot en verplaatsen naar first available slot
-    public void inputItem(Gantry gantry) {
-        gantry.moveTo(INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY());
-        executedMoves.add(new Move(gantry, gantry.getX(), gantry.getY()));
-        gantry.pickupItem(INPUT_SLOT);
-        executedMoves.add(new Move(gantry,INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY()));
+    public void inputItem(Gantry gantry, Slot s) {
+        moveGantry(gantry,INPUT_SLOT);
+        pickupItem(gantry,INPUT_SLOT);
+        moveGantry(gantry,s);
+        placeItem(gantry,s);
     }
 
     //verplaatst item naar output slot
@@ -404,9 +387,8 @@ public class Problem {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
             INPUT_SLOT.putItem(item);
-            input_gantry.moveTo(INPUT_SLOT.getCenterX(), INPUT_SLOT.getCenterY());
-            input_gantry.pickupItem(INPUT_SLOT);
-            //input_gantry.placeItem(availableSlots.get(0));
+            inputItem(input_gantry, availableSlots.get(0));
+            disableSlot(availableSlots.get(0));
         }
 
         for (Job j : outputJobSequence) {
@@ -440,4 +422,8 @@ public class Problem {
         }
     }
 
+    public void disableSlot(Slot s){
+        availableSlots.remove(s);
+        occupiedSlots.add(s);
+    }
 }

@@ -91,6 +91,10 @@ public class Gantry {
         this.time = time;
     }
 
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
     public boolean overlapsGantryArea(Gantry g) {
         return g.xMin < xMax && xMin < g.xMax;
     }
@@ -127,10 +131,10 @@ public class Gantry {
         this.x = x;
         this.y = y;
 
-        Gantry g = this;
+        Gantry g = copy();
 
         Move move = new Move(g, x, y);
-        System.out.println("Moved Gantry to (" + x + ", " + y + ") time: " + this.time );
+        System.out.println("Moved Gantry to (" + x + ", " + y + ") time: " + this.time);
         return move;
 
     }
@@ -139,20 +143,31 @@ public class Gantry {
     public Move pickupItem(Slot s) {
         this.item = s.getItem();
         this.time += 10;
-        this.x = s.getCenterX();
-        this.y = s.getCenterY();
-        Move move = new Move(this, this.x, this.y);
-        System.out.println("Picked up " + this.item.toString() + "at " + s.toString() + " time: "+this.time);
+        Gantry g = copy();
+        Move move = new Move(g, this.x, this.y);
+        System.out.println("Picked up " + this.item.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
     }
 
     //Methode die item uit this gantry in slot s plaatst en item uit gantry verwijdert
     public Move placeItem(Slot s) {
         s.putItem(this.item);
+        Item i = this.item;
         this.item = null;
         this.time += 10;
-        Move move = new Move(this, this.x, this.y);
+        Gantry g = copy();
+        Move move = new Move(g, this.x, this.y);
+        System.out.println("Placed " + i.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
+    }
+
+    public Gantry copy() {
+        Gantry g = new Gantry(this.id, this.xMin, this.xMax, this.startX, this.startY, this.xSpeed, this.ySpeed);
+        g.setX(this.x);
+        g.setY(this.y);
+        g.setTime(this.time);
+        g.setItem(this.item);
+        return g;
     }
 }
 

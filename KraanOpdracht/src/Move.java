@@ -2,11 +2,14 @@ public class Move {
 
     int destinationX, destinationY;
     Gantry gantry;
+    Item item;
     double time;
 
     public Move(Gantry gantry, int destinationX, int destinationY) {
         this.destinationX = destinationX;
         this.destinationY = destinationY;
+        this.time = gantry.getTime();
+        this.item = gantry.getItem();
         this.gantry = gantry;
     }
 
