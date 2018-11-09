@@ -357,6 +357,9 @@ public class Problem {
 
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
+
+
+
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
 
