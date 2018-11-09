@@ -15,6 +15,7 @@ public class Main {
             Problem p=Problem.fromJson(new File(INPUT_FILENAME));
 
             p.solve(OUTPUT_FILENAME);
+            p.createCSV(OUTPUT_FILENAME);
 
             System.out.println("Input OK.");
 

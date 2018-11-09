@@ -5,10 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -329,7 +326,7 @@ public class Problem {
     //Verplaatsen van een Item tussen 2 slots en tijd hiervan berekenen
     //Geen controle of er bovenliggende items zijn!
     public void moveGantry(Gantry gantry, Slot naar) {
-        executedMoves.add(gantry.moveTo(naar.getCenterX(),naar.getCenterY()));
+        executedMoves.add(gantry.moveTo(naar.getCenterX(), naar.getCenterY()));
     }
 
     //Methode om gewenst item op de pikken uit slot s
@@ -345,22 +342,20 @@ public class Problem {
 
     //Item oppikken op input slot en verplaatsen naar first available slot
     public void inputItem(Gantry gantry, Slot s) {
-        moveGantry(gantry,INPUT_SLOT);
-        pickupItem(gantry,INPUT_SLOT);
-        moveGantry(gantry,s);
-        placeItem(gantry,s);
+        moveGantry(gantry, INPUT_SLOT);
+        pickupItem(gantry, INPUT_SLOT);
+        moveGantry(gantry, s);
+        placeItem(gantry, s);
     }
 
     //verplaatst item naar output slot
+    //TODO
     public void outputItem(Item item) {
-        Slot s = getSlot(item);
-        occupiedSlots.remove(item);
-        availableSlots.add(getSlot(item));
-        OUTPUT_SLOT.putItem(s.getItem());
 
     }
 
     //verwijdert item uit een slot + houdt rekening met bovenliggende items (verplaatst eerst bovenliggende items naar eerst available slot)
+    //TODO
     public void removeItem(Item item) {
         Slot s = getSlot(item);
 
@@ -375,8 +370,8 @@ public class Problem {
         }
     }
 
-   //TODO
-   //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+    //TODO
+    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
 
         Gantry input_gantry = gantries.get(0);
@@ -396,9 +391,7 @@ public class Problem {
             Item item = j.getItem();
 
 
-
         }
-        printMoves();
     }
 
     public void printMoves() {
@@ -407,28 +400,44 @@ public class Problem {
         }
     }
 
+    public void createCSV(String OUTPUT_FILENAME) throws IOException {
+        PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
+
+        String header = "gID, T, x, y, itemInCraneID\n";
+
+        pw.write(header);
+
+        for (Move m : executedMoves) {
+            pw.write(m.toString());
+            pw.write("\n");
+        }
+
+        pw.close();
+
+    }
+
     public Move getLastMove() {
         Move m = executedMoves.get(executedMoves.size() - 1);
         return m;
     }
 
-    public void setInputOutputSlots(){
-        for(Slot s: slots){
-            if(s.getType() == Slot.SlotType.INPUT){
+    public void setInputOutputSlots() {
+        for (Slot s : slots) {
+            if (s.getType() == Slot.SlotType.INPUT) {
                 INPUT_SLOT = s;
             }
-            if (s.getType() == Slot.SlotType.OUTPUT){
+            if (s.getType() == Slot.SlotType.OUTPUT) {
                 OUTPUT_SLOT = s;
             }
         }
     }
 
-    public void disableSlot(Slot s){
+    public void disableSlot(Slot s) {
         availableSlots.remove(s);
         occupiedSlots.add(s);
     }
 
-    public void enableSlot(Slot s){
+    public void enableSlot(Slot s) {
         availableSlots.add(s);
         occupiedSlots.remove(s);
     }

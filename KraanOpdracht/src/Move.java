@@ -51,13 +51,11 @@ public class Move {
 
     @Override
     public String toString() {
-        return "Move{" +
-                "" + gantry.getId() +
+        return  "" + gantry.getId() +
                 ", " + time +
                 ", " + destinationX +
                 ", " + destinationY +
-                ", " + gantry.getItem() +
-                '}';
+                ", " + gantry.getItem();
     }
 
 }
