@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08b949cb-b0a5-4525-963e-30a1b6a9b2c4" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSVUtil.java" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
       <change beforePath="$PROJECT_DIR$/src/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Problem.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,11 +50,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="java" value="5105" />
+=======
+          <entry key="java" value="5742" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="JAVA" value="5105" />
         </counts>
       </usages-collector>
@@ -79,6 +89,9 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="599" />
+=======
+          <entry key="JAVA" value="5742" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
         </counts>
       </usages-collector>
     </session>
@@ -88,8 +101,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="255">
               <caret line="15" column="106" selection-start-line="15" selection-start-column="106" selection-end-line="15" selection-end-column="106" />
+=======
+            <state relative-caret-position="103">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,6 +116,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
@@ -111,6 +130,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret line="312" column="13" lean-forward="true" selection-start-line="312" selection-start-column="13" selection-end-line="312" selection-end-column="13" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/Problem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
               <folding>
                 <element signature="method#Problem#0;class#Problem#0" />
                 <element signature="method#writeJsonFile#0;class#Problem#0" />
@@ -124,8 +149,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Move.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+=======
+            <state relative-caret-position="148">
+              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
               <folding>
                 <element signature="e#107#108#0" expanded="true" />
                 <element signature="e#138#139#0" expanded="true" />
@@ -155,8 +185,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Gantry.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="544">
               <caret line="67" selection-start-line="67" selection-end-line="67" />
+=======
+            <state relative-caret-position="391">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
               <folding>
                 <element signature="method#Gantry#0;class#Gantry#0" />
                 <element signature="method#getOverlapArea#0;class#Gantry#0" />
@@ -182,14 +217,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Item.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
               <folding>
                 <element signature="method#toString#0;class#Item#0" />
               </folding>
+=======
+            <state relative-caret-position="96">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
             </state>
           </provider>
         </entry>
@@ -230,12 +270,17 @@
         <option value="$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json" />
         <option value="$PROJECT_DIR$/src/Gantry.java" />
         <option value="$PROJECT_DIR$/src/Job.java" />
-        <option value="$PROJECT_DIR$/src/Item.java" />
         <option value="$PROJECT_DIR$/src/Slot.java" />
         <option value="$PROJECT_DIR$/src/CSVUtil.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Problem.java" />
         <option value="$PROJECT_DIR$/src/Move.java" />
+=======
+        <option value="$PROJECT_DIR$/src/Problem.java" />
+        <option value="$PROJECT_DIR$/src/Move.java" />
+        <option value="$PROJECT_DIR$/src/Item.java" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
       </list>
     </option>
   </component>
@@ -280,7 +325,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541757880559" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541758550780" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/validator-v7.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -336,13 +385,48 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="37462000" />
+=======
+    <option name="totallyTimeSpent" value="35204000" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17449665" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6609929" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37588653" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32827735" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -371,6 +455,7 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+<<<<<<< HEAD
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17449665" />
@@ -402,6 +487,8 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+=======
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,8 +537,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/CSVUtil.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+=======
+        <state relative-caret-position="848">
+          <caret line="54976" column="5" selection-start-line="54976" selection-start-column="5" selection-end-line="54976" selection-end-column="5" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
         </state>
       </provider>
     </entry>
@@ -498,10 +590,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
+          <folding>
+            <element signature="method#writeJsonFile#0;class#Problem#0" />
+            <element signature="method#fromJson#0;class#Problem#0" />
+            <element signature="method#createSlotField#0;class#Problem#0" />
+            <element signature="method#updateSlots#0;class#Problem#0" />
+            <element signature="method#getSlot#0;class#Problem#0" />
+            <element signature="method#moveItem#0;class#Problem#0" />
+            <element signature="method#outputItem#0;class#Problem#0" />
+            <element signature="method#removeItem#0;class#Problem#0" />
+            <element signature="e#13027#13119#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gantry.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="544">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
+=======
+        <state relative-caret-position="391">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
           <folding>
             <element signature="method#Gantry#0;class#Gantry#0" />
             <element signature="method#getOverlapArea#0;class#Gantry#0" />
@@ -531,8 +656,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Move.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="153">
           <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+=======
+        <state relative-caret-position="148">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
           <folding>
             <element signature="e#107#108#0" expanded="true" />
             <element signature="e#138#139#0" expanded="true" />
@@ -555,6 +685,16 @@
             <element signature="e#711#712#0" expanded="true" />
             <element signature="e#743#744#0" expanded="true" />
           </folding>
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+>>>>>>> 525ca43e2cfc2527ac25ed9fe9a046cf9b98b7ca
         </state>
       </provider>
     </entry>
