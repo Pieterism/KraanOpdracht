@@ -323,8 +323,7 @@ public class Problem {
         return null;
     }
 
-    //Verplaatsen van een Item tussen 2 slots en tijd hiervan berekenen
-    //Geen controle of er bovenliggende items zijn!
+    //Kraan gantry verplaatsen naar een bepaald slot
     public void moveGantry(Gantry gantry, Slot naar) {
         executedMoves.add(gantry.moveTo(naar.getCenterX(), naar.getCenterY()));
     }
@@ -340,23 +339,37 @@ public class Problem {
         executedMoves.add(gantry.placeItem(s));
     }
 
-    //Item oppikken op input slot en verplaatsen naar first available slot
+    //TODO: item verplaatsen van slot s1 naar slot s2
+    public void moveItem(Gantry gantry,Slot s1, Slot s2) {
+        moveGantry(gantry, s1);
+        pickupItem(gantry, s1);
+        enableSlot(s1);
+        moveGantry(gantry,s2);
+        placeItem(gantry,s2);
+        disableSlot(s2);
+    }
+
+    //Item oppikken op INPUT_SLOT en verplaatsen naar first available slot
     public void inputItem(Gantry gantry, Slot s) {
         moveGantry(gantry, INPUT_SLOT);
         pickupItem(gantry, INPUT_SLOT);
         moveGantry(gantry, s);
         placeItem(gantry, s);
+        disableSlot(s);
     }
 
-    //verplaatst item naar output slot
-    //TODO
-    public void outputItem(Item item) {
-
+    //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
+    public void outputItem(Gantry gantry, Slot s) {
+        moveGantry(gantry, s);
+        pickupItem(gantry, s);
+        enableSlot(s);
+        moveGantry(gantry, OUTPUT_SLOT);
+        placeItem(gantry, OUTPUT_SLOT);
     }
 
     //verwijdert item uit een slot + houdt rekening met bovenliggende items (verplaatst eerst bovenliggende items naar eerst available slot)
     //TODO
-    public void removeItem(Item item) {
+   /* public void removeItem(Item item) {
         Slot s = getSlot(item);
 
         if (s.isTopSlot()) {
@@ -368,7 +381,7 @@ public class Problem {
                 outputItem(item);
             }
         }
-    }
+    }*/
 
     //TODO
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
@@ -384,13 +397,12 @@ public class Problem {
             Item item = j.getItem();
             INPUT_SLOT.putItem(item);
             inputItem(input_gantry, availableSlots.get(0));
-            disableSlot(availableSlots.get(0));
+
         }
 
         for (Job j : outputJobSequence) {
             Item item = j.getItem();
-
-
+            outputItem(output_gantry, getSlot(item));
         }
     }
 
@@ -439,6 +451,7 @@ public class Problem {
 
     public void enableSlot(Slot s) {
         availableSlots.add(s);
+        s.removeItem();
         occupiedSlots.remove(s);
     }
 }

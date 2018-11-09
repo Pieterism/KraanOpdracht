@@ -57,6 +57,10 @@ public class Slot {
         return item;
     }
 
+    public void removeItem() {
+        this.item = null;
+    }
+
     public void putItem(Item item) {
         this.item = item;
     }
