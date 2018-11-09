@@ -375,7 +375,7 @@ public class Problem {
 
             moveItem(item);
 
-            System.out.println("Moved " + item.toString() + " from " + slots.get(INPUT_SLOT) + " to " + occupiedSlots.get(occupiedSlots.size() - 1));
+            //System.out.println("Moved " + item.toString() + " from " + slots.get(INPUT_SLOT) + " to " + occupiedSlots.get(occupiedSlots.size() - 1));
 
         }
 
@@ -385,9 +385,10 @@ public class Problem {
 
             removeItem(item);
 
-            System.out.println("Removed " + item.toString() + " from " + s.toString() + " to " + slots.get(OUTPUT_SLOT));
+            //System.out.println("Removed " + item.toString() + " from " + s.toString() + " to " + slots.get(OUTPUT_SLOT));
 
         }
+        printMoves();
     }
 
     public void printMoves(){

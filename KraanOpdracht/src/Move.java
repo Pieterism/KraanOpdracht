@@ -55,11 +55,11 @@ public class Move {
     @Override
     public String toString() {
         return "Move{" +
-                "x=" + x +
-                ", y=" + y +
-                ", item=" + item +
-                ", gantry=" + gantry +
-                ", time=" + time +
+                "" + gantry.getId() +
+                ", " + time +
+                ", " + x +
+                ", " + y +
+                ", " + item +
                 '}';
     }
 
