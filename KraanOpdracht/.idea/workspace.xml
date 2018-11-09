@@ -43,12 +43,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5351" />
+          <entry key="java" value="5545" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5351" />
+          <entry key="JAVA" value="5545" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="362" lean-forward="true" selection-start-line="362" selection-end-line="362" />
+            <state relative-caret-position="293">
+              <caret line="394" column="9" lean-forward="true" selection-start-line="394" selection-start-column="9" selection-end-line="394" selection-end-column="9" />
               <folding>
                 <element signature="method#Problem#0;class#Problem#0" />
                 <element signature="method#writeJsonFile#0;class#Problem#0" />
@@ -81,6 +81,8 @@
                 <element signature="method#getSlot#0;class#Problem#0" />
                 <element signature="method#moveItem#0;class#Problem#0" />
                 <element signature="method#outputItem#0;class#Problem#0" />
+                <element signature="method#removeItem#0;class#Problem#0" />
+                <element signature="method#solve#0;class#Problem#0" />
               </folding>
             </state>
           </provider>
@@ -89,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Move.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="29" selection-end-line="55" />
+            <state relative-caret-position="188">
+              <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
               <folding>
                 <element signature="e#248#249#0" expanded="true" />
                 <element signature="e#272#273#0" expanded="true" />
@@ -110,6 +112,7 @@
                 <element signature="e#800#801#0" expanded="true" />
                 <element signature="e#644#645#0" expanded="true" />
                 <element signature="e#671#672#0" expanded="true" />
+                <element signature="method#toString#0;class#Move#0" />
                 <element signature="e#711#712#0" expanded="true" />
                 <element signature="e#743#744#0" expanded="true" />
               </folding>
@@ -233,7 +236,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541757183081" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541757812152" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/validator-v7.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -288,7 +291,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33841000" />
+    <option name="totallyTimeSpent" value="34468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -423,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-end-line="55" />
+        <state relative-caret-position="188">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
           <folding>
             <element signature="e#248#249#0" expanded="true" />
             <element signature="e#272#273#0" expanded="true" />
@@ -444,6 +447,7 @@
             <element signature="e#800#801#0" expanded="true" />
             <element signature="e#644#645#0" expanded="true" />
             <element signature="e#671#672#0" expanded="true" />
+            <element signature="method#toString#0;class#Move#0" />
             <element signature="e#711#712#0" expanded="true" />
             <element signature="e#743#744#0" expanded="true" />
           </folding>
@@ -452,8 +456,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="362" lean-forward="true" selection-start-line="362" selection-end-line="362" />
+        <state relative-caret-position="293">
+          <caret line="394" column="9" lean-forward="true" selection-start-line="394" selection-start-column="9" selection-end-line="394" selection-end-column="9" />
           <folding>
             <element signature="method#Problem#0;class#Problem#0" />
             <element signature="method#writeJsonFile#0;class#Problem#0" />
@@ -463,6 +467,8 @@
             <element signature="method#getSlot#0;class#Problem#0" />
             <element signature="method#moveItem#0;class#Problem#0" />
             <element signature="method#outputItem#0;class#Problem#0" />
+            <element signature="method#removeItem#0;class#Problem#0" />
+            <element signature="method#solve#0;class#Problem#0" />
           </folding>
         </state>
       </provider>

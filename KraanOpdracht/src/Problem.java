@@ -331,6 +331,11 @@ public class Problem {
         availableSlots.remove(availableSlots.get(0));
     }
 
+    //Item oppikken op input slot en verplaatsen naar first available slot
+    public void inputItem(){
+
+    }
+
     //verplaatst item naar output slot
     public void outputItem(Item item) {
         Slot s = getSlot(item);
@@ -363,7 +368,7 @@ public class Problem {
 
         Move start = new Move(input_gantry,0, input_gantry.getStartX(), input_gantry.getStartY(), null);
         executedMoves.add(start);
-        
+
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
 
@@ -384,5 +389,10 @@ public class Problem {
         }
     }
 
+    public void printMoves(){
+        for (Move m : executedMoves){
+            System.out.println(m.toString());
+        }
+    }
 
 }

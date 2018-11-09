@@ -49,6 +49,17 @@ public class Move {
         return time;
     }
 
+    @Override
+    public String toString() {
+        return "Move{" +
+                "x=" + x +
+                ", y=" + y +
+                ", item=" + item +
+                ", gantry=" + gantry +
+                ", time=" + time +
+                '}';
+    }
+
     public void setTime(double time) {
         this.time = time;
     }
