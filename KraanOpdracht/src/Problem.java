@@ -358,8 +358,12 @@ public class Problem {
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
 
+        Gantry input_gantry = gantries.get(0);
+        Gantry output_gantry = gantries.get(0);
 
-
+        Move start = new Move(input_gantry,0, input_gantry.getStartX(), input_gantry.getStartY(), null);
+        executedMoves.add(start);
+        
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
 

@@ -1,22 +1,16 @@
 public class Move {
 
-    int gantryID, x, y, itemInCraneID;
+    int x, y;
+    Item item;
+    Gantry gantry;
     double time;
 
-    public Move(int gantryID, int x, int y, int itemInCraneID, double time) {
-        this.gantryID = gantryID;
+    public Move(Gantry gantry, double time, int x, int y, Item item) {
         this.x = x;
         this.y = y;
-        this.itemInCraneID = itemInCraneID;
+        this.item = item;
+        this.gantry = gantry;
         this.time = time;
-    }
-
-    public int getGantryID() {
-        return gantryID;
-    }
-
-    public void setGantryID(int gantryID) {
-        this.gantryID = gantryID;
     }
 
     public int getX() {
@@ -35,12 +29,20 @@ public class Move {
         this.y = y;
     }
 
-    public int getItemInCraneID() {
-        return itemInCraneID;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItemInCraneID(int itemInCraneID) {
-        this.itemInCraneID = itemInCraneID;
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Gantry getGantry() {
+        return gantry;
+    }
+
+    public void setGantry(Gantry gantry) {
+        this.gantry = gantry;
     }
 
     public double getTime() {
