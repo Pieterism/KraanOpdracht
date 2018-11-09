@@ -346,7 +346,7 @@ public class Problem {
         }
     }
 
-    //Methode item in gantru te plaatsen in slot s
+    //Methode om item in gantry te plaatsen in slot s
     public void placeItem(Gantry gantry, Slot s) {
         executedMoves.add(gantry.placeItem(s));
         disableSlot(s);
