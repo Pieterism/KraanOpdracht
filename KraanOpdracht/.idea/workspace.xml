@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08b949cb-b0a5-4525-963e-30a1b6a9b2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
+            <state relative-caret-position="58">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,20 +66,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
+            <state relative-caret-position="163">
+              <caret line="392" lean-forward="true" selection-start-line="392" selection-end-line="392" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#writeJsonFile#0;class#Problem#0" />
                 <element signature="method#fromJson#0;class#Problem#0" />
                 <element signature="method#createSlotField#0;class#Problem#0" />
                 <element signature="method#updateSlots#0;class#Problem#0" />
                 <element signature="method#getSlot#0;class#Problem#0" />
-                <element signature="method#moveItem#0;class#Problem#0" />
-                <element signature="method#outputItem#0;class#Problem#0" />
-                <element signature="method#removeItem#0;class#Problem#0" />
                 <element signature="e#13027#13119#0" />
               </folding>
             </state>
@@ -89,80 +85,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5824">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Move.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-              <folding>
-                <element signature="e#248#249#0" expanded="true" />
-                <element signature="e#272#273#0" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
-                <element signature="e#409#410#0" expanded="true" />
-                <element signature="e#435#436#0" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#588#589#0" expanded="true" />
-                <element signature="e#626#627#0" expanded="true" />
-                <element signature="e#658#659#0" expanded="true" />
-                <element signature="e#691#692#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-                <element signature="e#764#765#0" expanded="true" />
-                <element signature="e#800#801#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#671#672#0" expanded="true" />
-                <element signature="e#711#712#0" expanded="true" />
-                <element signature="e#743#744#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gantry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-              <folding>
-                <element signature="method#Gantry#0;class#Gantry#0" />
-                <element signature="method#getOverlapArea#0;class#Gantry#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Slot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-              <folding>
-                <element signature="method#Slot#0;class#Slot#0" />
-                <element signature="class#SlotType#0;class#Slot#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Job.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
-              <folding>
-                <element signature="method#toString#0;class#Task#0;class#Job#0" />
-                <element signature="class#TaskType#0;class#Job#0" />
-              </folding>
+            <state relative-caret-position="199">
+              <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -222,6 +157,11 @@
             <path>
               <item name="Kraanopdracht" type="b2602c69:ProjectViewProjectNode" />
               <item name="KraanOpdracht" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kraanopdracht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KraanOpdracht" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -235,7 +175,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541758550780" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541759513384" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/validator-v7.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -290,13 +230,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35204000" />
+    <option name="totallyTimeSpent" value="35319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -306,7 +246,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6609929" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4397163" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37588653" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -426,34 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
-          <folding>
-            <element signature="method#writeJsonFile#0;class#Problem#0" />
-            <element signature="method#fromJson#0;class#Problem#0" />
-            <element signature="method#createSlotField#0;class#Problem#0" />
-            <element signature="method#updateSlots#0;class#Problem#0" />
-            <element signature="method#getSlot#0;class#Problem#0" />
-            <element signature="method#moveItem#0;class#Problem#0" />
-            <element signature="method#outputItem#0;class#Problem#0" />
-            <element signature="method#removeItem#0;class#Problem#0" />
-            <element signature="e#13027#13119#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Gantry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -467,30 +379,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Move.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-          <folding>
-            <element signature="e#248#249#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="199">
+          <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -498,6 +388,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5824">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="392" lean-forward="true" selection-start-line="392" selection-end-line="392" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#writeJsonFile#0;class#Problem#0" />
+            <element signature="method#fromJson#0;class#Problem#0" />
+            <element signature="method#createSlotField#0;class#Problem#0" />
+            <element signature="method#updateSlots#0;class#Problem#0" />
+            <element signature="method#getSlot#0;class#Problem#0" />
+            <element signature="e#13027#13119#0" />
+          </folding>
         </state>
       </provider>
     </entry>
