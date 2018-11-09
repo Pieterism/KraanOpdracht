@@ -28,6 +28,7 @@ public class Problem {
 
     List<Slot> availableSlots;
     List<Slot> occupiedSlots;
+    List<Move> executedMoves;
 
     public Problem(int minX, int maxX, int minY, int maxY, int maxLevels, List<Item> items, List<Gantry> gantries, List<Slot> slots, List<Job> inputJobSequence, List<Job> outputJobSequence, int gantrySafetyDist, int pickupPlaceDuration) {
         this.minX = minX;
