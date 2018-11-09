@@ -333,6 +333,7 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
+    //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verwijderen)
     public void pickupItem(Gantry gantry, Slot s) {
         executedMoves.add(gantry.pickupItem(s));
     }
@@ -393,7 +394,7 @@ public class Problem {
 
         for (Job j : outputJobSequence) {
             Item item = j.getItem();
-            Slot s = getSlot(item);
+
 
 
         }
@@ -425,5 +426,10 @@ public class Problem {
     public void disableSlot(Slot s){
         availableSlots.remove(s);
         occupiedSlots.add(s);
+    }
+
+    public void enableSlot(Slot s){
+        availableSlots.add(s);
+        occupiedSlots.remove(s);
     }
 }
