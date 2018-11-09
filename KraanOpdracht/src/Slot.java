@@ -105,7 +105,7 @@ public class Slot {
     }
 
     public boolean isTopSlot() {
-        if (this.getParentSlot() == null) {
+        if (this.getParentSlot() == null || this.getParentSlot().getItem() == null) {
             return true;
         } else {
             return false;
@@ -126,15 +126,6 @@ public class Slot {
             } else {
                 return false;
             }
-        }
-    }
-
-    //Controleren of er items in bovenliggende slots zitten
-    public boolean hasAbove() {
-        if (this.getParentSlot().getItem() == null) {
-            return false;
-        } else {
-            return true;
         }
     }
 

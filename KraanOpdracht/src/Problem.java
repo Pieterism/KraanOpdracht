@@ -331,26 +331,39 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
-    //TODO: controleren of het item direct opgepakt kan worden, ander eerst containers verplaatsen + toevoegen aan temporarydisabledSlots
     public void pickupItem(Gantry gantry, Slot s) {
-
-        if (s.isTopSlot()) {
+        temporaryDisabledSlots.clear();
+        if (s == INPUT_SLOT || s.isTopSlot()) {
             executedMoves.add(gantry.pickupItem(s));
         } else {
-            if (s.hasAbove()) {
-                temporaryDisabledSlots.add(s.getParentSlot());
-                pickupItem(gantry, s.getParentSlot());
-            } else {
-                executedMoves.add(gantry.pickupItem(s));
-            }
+            moveParents(gantry, s);
         }
     }
 
+    //Methode om Parent slots te verwijderen om gewenste slot bereikbaar te maken
+    //TODO: nakijken! Recursie
+    public void moveParents(Gantry gantry, Slot s) {
+        while (!s.isTopSlot()) {
+            s = s.getParentSlot();
+            moveParents(gantry, s);
+        }
+        moveItem(gantry, s, availableSlots.get(0));
+
+    }
+
     //Methode om item in gantry te plaatsen in slot s
-    //TODO: controleren of slot available is om container te plaatsen
     public void placeItem(Gantry gantry, Slot s) {
-        executedMoves.add(gantry.placeItem(s));
-        disableSlot(s);
+        if (s.isAvailable()) {
+            executedMoves.add(gantry.placeItem(s));
+            disableSlot(s);
+            for (Slot slot : temporaryDisabledSlots) {
+                availableSlots.add(slot);
+            }
+        } else {
+            s = availableSlots.get(0);
+            placeItem(gantry, s);
+        }
+
     }
 
     //Methode op item te verplaatsen van slot s1 naar slot s2
@@ -373,7 +386,7 @@ public class Problem {
 
     //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
-        moveItem(gantry,s,OUTPUT_SLOT);
+        moveItem(gantry, s, OUTPUT_SLOT);
     }
 
     public void printMoves() {
@@ -385,7 +398,7 @@ public class Problem {
     public void createCSV(String OUTPUT_FILENAME) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
 
-        String header = "gID, T, x, y, itemInCraneID\n";
+        String header = "gID;T;x;y;itemInCraneID\n";
 
         pw.write(header);
 
@@ -411,11 +424,13 @@ public class Problem {
             if (s.getType() == Slot.SlotType.OUTPUT) {
                 OUTPUT_SLOT = s;
             }
+            availableSlots.remove(INPUT_SLOT);
+            availableSlots.remove(OUTPUT_SLOT);
         }
     }
 
     //add slot to temporary disables slots list for removing parent container slots
-    public void tempDisableslot(Slot s){
+    public void tempDisableslot(Slot s) {
         availableSlots.remove(s);
         temporaryDisabledSlots.add(s);
     }
@@ -433,9 +448,9 @@ public class Problem {
         occupiedSlots.remove(s);
     }
 
-    //TODO
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve(String output) {
+
 
         Gantry input_gantry = gantries.get(0);
         Gantry output_gantry = gantries.get(0);

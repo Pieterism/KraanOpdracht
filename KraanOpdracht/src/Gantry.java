@@ -122,6 +122,10 @@ public class Gantry {
         return item;
     }
 
+    public String printItemID(){
+        return item.printID();
+    }
+
     //Gantry verplaatsen van huidige locatie naar nieuwe locatie(destinationX,destinationY)
     public Move moveTo(int x, int y) {
         double xTime = (Math.abs(x - this.getX())) / this.getXSpeed();
@@ -134,7 +138,6 @@ public class Gantry {
         Gantry g = copy();
 
         Move move = new Move(g, x, y);
-        System.out.println("Moved Gantry to (" + x + ", " + y + ") time: " + this.time);
         return move;
 
     }
@@ -145,7 +148,6 @@ public class Gantry {
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
-        System.out.println("Picked up " + this.item.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
     }
 
@@ -157,7 +159,6 @@ public class Gantry {
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
-        System.out.println("Placed " + i.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
     }
 
