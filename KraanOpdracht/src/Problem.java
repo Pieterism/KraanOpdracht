@@ -331,27 +331,26 @@ public class Problem {
     }
 
     //Methode om gewenst item op de pikken uit slot s
-    //TODO: werkt nog niet genoeg om eerst bovenliggende containers te verwijderen. 
     public void pickupItem(Gantry gantry, Slot s) {
-        temporaryDisabledSlots.clear();
-        if (s == INPUT_SLOT || s.isTopSlot()) {
+        tempDisableslot(s);
+        if (s.isTopSlot()) {
+            tempDisableslot(s);
             executedMoves.add(gantry.pickupItem(s));
         } else {
-            moveParents(gantry, s);
+            Slot parent = s.getParentSlot();
+            moveParent(gantry,s, parent, getNextAvailable());
+            pickupItem(gantry, s);
         }
     }
 
-    //Methode om Parent slots te verwijderen om gewenste slot bereikbaar te maken
-    //TODO: Recursie klo
-    public void moveParents(Gantry gantry, Slot s) {
-        Slot temp = s;
-        while (!s.isTopSlot()) {
-            s = s.getParentSlot();
-            moveParents(gantry, s);
-            moveItem(gantry, s, availableSlots.get(0));
-
-        }
-        pickupItem(gantry, temp);
+    //Verplaatst container uit slot parent, naar slot destination en keer dan terug naar parent
+    public void moveParent(Gantry gantry, Slot s, Slot parent, Slot destination) {
+        pickupItem(gantry, parent);
+        enableSlot(parent);
+        moveGantry(gantry, destination);
+        placeItem(gantry, destination);
+        disableSlot(destination);
+        moveGantry(gantry, s);
     }
 
     //Methode om item in gantry te plaatsen in slot s
@@ -363,9 +362,10 @@ public class Problem {
                 availableSlots.add(slot);
             }
         } else {
-            s = availableSlots.get(0);
+            s = getNextAvailable();
             placeItem(gantry, s);
         }
+        temporaryDisabledSlots.clear();
 
     }
 
@@ -434,8 +434,12 @@ public class Problem {
 
     //add slot to temporary disables slots list for removing parent container slots
     public void tempDisableslot(Slot s) {
-        availableSlots.remove(s);
         temporaryDisabledSlots.add(s);
+    }
+
+    public Slot getNextAvailable() {
+        Slot s = availableSlots.get(0);
+        return s;
     }
 
     //add slot to occupied slots list and remove from available slots list
@@ -465,7 +469,7 @@ public class Problem {
             Item item = j.getItem();
             INPUT_SLOT.putItem(item);
 
-            inputItem(input_gantry, availableSlots.get(0));
+            inputItem(input_gantry, getNextAvailable());
 
         }
 
