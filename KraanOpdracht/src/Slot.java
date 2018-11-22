@@ -1,12 +1,13 @@
+import java.util.List;
+
 public class Slot {
 
     private final int id;
     private final int centerX, centerY, xMin, xMax, yMin, yMax, z;
     private Item item;
     private final SlotType type;
-    private Slot parentSlot;
-    private Slot childSlot;
-
+    private List<Slot> parentSlots;
+    private List<Slot> childSlots;
 
     public Slot(int id, int centerX, int centerY, int xMin, int xMax, int yMin, int yMax, int z, SlotType type, Item item) {
         this.id = id;
@@ -69,21 +70,21 @@ public class Slot {
         return type;
     }
 
-    public Slot getParentSlot() {
-        return parentSlot;
+    public List<Slot> getParentSlots() {
+        return parentSlots;
     }
 
-    public void setParentSlot(Slot parentSlot) {
-        this.parentSlot = parentSlot;
-        parentSlot.setChildSlot(this);
+    public void addParentSlot(Slot parentSlot) {
+        this.parentSlots.add(parentSlot);
+        parentSlot.addChildSlot(this);
     }
 
-    public Slot getChildSlot() {
-        return childSlot;
+    public List<Slot> getChildSlots() {
+        return childSlots;
     }
 
-    public void setChildSlot(Slot childSlot) {
-        this.childSlot = childSlot;
+    public void addChildSlot(Slot childSlot) {
+        this.childSlots.add(childSlot);
     }
 
     public boolean isInputSlot() {
@@ -104,15 +105,21 @@ public class Slot {
         } else return false;
     }
 
+    //Controleert of dit slot vrij bovenaan ligt
+    //TODO
     public boolean isTopSlot() {
-        if (this.getParentSlot() == null || this.getParentSlot().getItem() == null) {
-            return true;
-        } else {
-            return false;
+        for (Slot parent : this.getParentSlots()) {
+            if (parent == null || parent.getItem() == null) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
 
     //Controleren of een slot beschikbaar is om container te plaatsen
+    // TODO
     public boolean isAvailable() {
         if (this.isBottomSlot()) {
             if (this.isStorageSlot() && this.item == null) {
@@ -121,12 +128,21 @@ public class Slot {
                 return false;
             }
         } else {
-            if (this.isStorageSlot() && this.item == null && !this.getChildSlot().isAvailable()) {
-                return true;
-            } else {
-                return false;
+            for (Slot parent : parentSlots) {
+                if (parent.isStorageSlot() && parent.item == null) {
+                    for (Slot child : parent.getChildSlots()) {
+                        if (!child.isAvailable()) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
             }
         }
+        return false;
     }
 
     @Override
