@@ -34,27 +34,23 @@ public class Problem {
 
     //linked-list voorstellig van slot veld
     private void createSlotField() {
-        slots.forEach(this::setIfParent);
+        slots.forEach(this::setParents);
         slots.forEach(slot -> {
             if (slot.isAvailable()) this.availableSlots.add(slot);
             else this.occupiedSlots.add(slot);
         });
     }
 
-    private void setIfParent(Slot slot1) {
-        slots.forEach(slot2 -> {
-            isAParent(slot1, slot2);
+    private void setParents(Slot s) {
+        slots.forEach(slot -> {
+            if(s.isParent(slot)){
+                s.addParentSlot(slot);
+            }
         });
     }
 
-    private void isAParent(Slot slot1, Slot slot2) {
-        if (slot2.getZ() == slot1.getZ() + 1 && slot2.getCenterX() == slot1.getCenterX() && slot2.getCenterY() == slot1.getCenterY()) {
-            slot1.setParentSlot(slot2);
-        }
-    }
-
     //geeft slot van bepaald item terug
-    private Slot getSlot(Item item) {
+    public Slot getSlot(Item item) {
         return occupiedSlots.stream()
                 .filter(slot -> slot.getItem() == item)
                 .findFirst()
@@ -69,15 +65,13 @@ public class Problem {
     //Methode om gewenst item op de pikken uit slot s
     //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verplaatsen)
     public void pickupItem(Gantry gantry, Slot s) {
-
         if (s.isTopSlot()) {
             executedMoves.add(gantry.pickupItem(s));
         } else {
-            if (s.hasAbove()) {
-                pickupItem(gantry, s.getParentSlot());
-            } else {
-                executedMoves.add(gantry.pickupItem(s));
+            while (!s.getParentSlots().isEmpty()) {
+                pickupItem(gantry, s.getParentSlots().get(0));
             }
+            executedMoves.add(gantry.pickupItem(s));
         }
     }
 
@@ -119,7 +113,6 @@ public class Problem {
 
     public void createCSV(String OUTPUT_FILENAME) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
-
         String header = "gID;T;x;y;itemInCraneID\n";
 
         pw.write(header);
@@ -160,6 +153,10 @@ public class Problem {
         availableSlots.add(s);
         s.removeItem();
         occupiedSlots.remove(s);
+    }
+
+    public void clearExecutedMoves() {
+        this.executedMoves.clear();
     }
 
     //TODO

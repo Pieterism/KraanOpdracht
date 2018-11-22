@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Slot {
@@ -20,6 +21,8 @@ public class Slot {
         this.z = z;
         this.item = item;
         this.type = type;
+        parentSlots = new ArrayList<>();
+        childSlots = new ArrayList<>();
     }
 
     public int getId() {
@@ -118,22 +121,31 @@ public class Slot {
         if (this.isBottomSlot()) {
             if (this.isStorageSlot() && this.item == null) {
                 return true;
-            } else {
-                return false;
             }
             //slot ligt niet onderaan
         } else {
-            if (childSlots.stream().allMatch(child -> !child.isAvailable()) && this.isTopSlot()) {
-                return true;
-            } else {
-                return false;
+            if (childSlots.size() == 2) {
+                if (childSlots.stream().allMatch(child -> !child.isAvailable()) && this.isTopSlot()) {
+                    return true;
+                }
             }
         }
+        return false;
     }
 
     @Override
     public String toString() {
         return String.format("Slot %d (%d,%d,%d)", id, centerX, centerY, z);
+    }
+
+    //True if parentslot is parent from this slot
+    public boolean isParent(Slot parentslot) {
+        if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
+            if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static enum SlotType {
