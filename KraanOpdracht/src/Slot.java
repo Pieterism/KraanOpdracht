@@ -6,8 +6,8 @@ public class Slot {
     private final int centerX, centerY, xMin, xMax, yMin, yMax, z;
     private Item item;
     private final SlotType type;
-    private List<Slot> parentSlots;
-    private List<Slot> childSlots;
+    private Slot parentSlots;
+    private Slot childSlots;
 
     public Slot(int id, int centerX, int centerY, int xMin, int xMax, int yMin, int yMax, int z, SlotType type, Item item) {
         this.id = id;
