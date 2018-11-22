@@ -6,8 +6,8 @@ public class Slot {
     private final int centerX, centerY, xMin, xMax, yMin, yMax, z;
     private Item item;
     private final SlotType type;
-    private Slot parentSlots;
-    private Slot childSlots;
+    private List<Slot> parentSlots;
+    private List<Slot> childSlots;
 
     public Slot(int id, int centerX, int centerY, int xMin, int xMax, int yMin, int yMax, int z, SlotType type, Item item) {
         this.id = id;
@@ -105,44 +105,30 @@ public class Slot {
         } else return false;
     }
 
-    //Controleert of dit slot vrij bovenaan ligt
-    //TODO
+    //Controleert slot bovenaan (en dus beschikbaar) ligt
+    //TODO: check
     public boolean isTopSlot() {
-        for (Slot parent : this.getParentSlots()) {
-            if (parent == null || parent.getItem() == null) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
+        return parentSlots.stream().allMatch(parent -> parent.getParentSlots().isEmpty() || parent.getItem() == null);
     }
 
     //Controleren of een slot beschikbaar is om container te plaatsen
-    // TODO
+    // TODO: Check
     public boolean isAvailable() {
+        //wanneer slot op onderste laag ligt mag er altijd container worden geplaatst indien vrij
         if (this.isBottomSlot()) {
             if (this.isStorageSlot() && this.item == null) {
                 return true;
             } else {
                 return false;
             }
+            //slot ligt niet onderaan
         } else {
-            for (Slot parent : parentSlots) {
-                if (parent.isStorageSlot() && parent.item == null) {
-                    for (Slot child : parent.getChildSlots()) {
-                        if (!child.isAvailable()) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                } else {
-                    return false;
-                }
+            if (childSlots.stream().allMatch(child -> !child.isAvailable()) && this.isTopSlot()) {
+                return true;
+            } else {
+                return false;
             }
         }
-        return false;
     }
 
     @Override
