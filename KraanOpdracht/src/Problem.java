@@ -122,7 +122,7 @@ public class Problem {
     public void createCSV(String OUTPUT_FILENAME) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
 
-        String header = "gID, T, x, y, itemInCraneID\n";
+        String header = "gID;T;x;y;itemInCraneID\n";
 
         pw.write(header);
 

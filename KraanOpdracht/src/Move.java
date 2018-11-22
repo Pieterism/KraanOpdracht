@@ -52,10 +52,10 @@ public class Move {
     @Override
     public String toString() {
         return  "" + gantry.getId() +
-                ", " + time +
-                ", " + destinationX +
-                ", " + destinationY +
-                ", " + gantry.getItem();
+                ";" + time +
+                ";" + destinationX +
+                ";" + destinationY +
+                ";" + gantry.getItem().getId();
     }
 
 }
