@@ -161,7 +161,7 @@ public class Problem {
 
     //TODO
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
-    public void solve(String output) {
+    public void solve() {
 
         Gantry input_gantry = gantries.get(0);
         Gantry output_gantry = gantries.get(0);
