@@ -111,7 +111,9 @@ public class Slot {
     //Controleert slot bovenaan (en dus beschikbaar) ligt
     //TODO: check
     public boolean isTopSlot() {
-        return parentSlots.stream().allMatch(parent -> parent.getParentSlots().isEmpty() || parent.getItem() == null);
+        return parentSlots.stream().allMatch(parent -> parent.getItem() == null || parent.equals(null));
+
+
     }
 
     //Controleren of een slot beschikbaar is om container te plaatsen

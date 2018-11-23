@@ -1,8 +1,9 @@
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Problem {
 
@@ -15,6 +16,7 @@ public class Problem {
     private List<Slot> availableSlots;
     private List<Slot> occupiedSlots;
     private List<Move> executedMoves;
+    private List<Slot> temporaryDisabledSlots;
 
     Problem(List<Job> inputJobSequence,
             List<Job> outputJobSequence,
@@ -28,6 +30,7 @@ public class Problem {
         availableSlots = new ArrayList<>();
         occupiedSlots = new ArrayList<>();
         executedMoves = new ArrayList<>();
+        temporaryDisabledSlots = new ArrayList<>();
         setInputOutputSlots();
         createSlotField();
     }
@@ -65,13 +68,25 @@ public class Problem {
     //Methode om gewenst item op de pikken uit slot s
     //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verplaatsen)
     public void pickupItem(Gantry gantry, Slot s) {
+        //TODO
         if (s.isTopSlot()) {
             executedMoves.add(gantry.pickupItem(s));
         } else {
             while (!s.getParentSlots().isEmpty()) {
-                pickupItem(gantry, s.getParentSlots().get(0));
+                Slot parent = s.getParentSlots().get(0);
+                pickupItem(gantry, parent);
             }
             executedMoves.add(gantry.pickupItem(s));
+        }
+        //TODO
+        tempDisableslot(s);
+        if (s.isTopSlot()) {
+            tempDisableslot(s);
+            executedMoves.add(gantry.pickupItem(s));
+        } else {
+            /*Slot parent = s.getParentSlot();
+            moveParent(gantry,s, parent, getNextAvailable());
+            pickupItem(gantry, s);*/
         }
     }
 
@@ -101,8 +116,7 @@ public class Problem {
 
     //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
-        Optional.ofNullable(s)
-                .ifPresent(slot -> moveItem(gantry, slot, OUTPUT_SLOT));
+        moveItem(gantry,s,OUTPUT_SLOT);
     }
 
     public void printMoves() {
@@ -148,6 +162,11 @@ public class Problem {
         occupiedSlots.add(s);
     }
 
+    //add slot to temporary disables slots list for removing parent container slots
+    public void tempDisableslot(Slot s) {
+        temporaryDisabledSlots.add(s);
+    }
+
     //add slot to available slots list and remove from occupied slots list
     public void enableSlot(Slot s) {
         availableSlots.add(s);
@@ -168,6 +187,8 @@ public class Problem {
 
         Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
         executedMoves.add(start);
+
+        //TODO
 
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
