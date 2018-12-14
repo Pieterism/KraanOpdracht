@@ -91,6 +91,10 @@ public class Gantry {
         this.time = time;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
     public void setItem(Item item) {
         this.item = item;
     }
@@ -114,14 +118,20 @@ public class Gantry {
         return xMin <= s.getCenterX() && s.getCenterX() <= xMax;
     }
 
-    public void addItem(Item i) {
-        this.item = i;
+    public String printItemID() {
+        return item.printID();
     }
 
-    public Item getItem() {
-        return item;
+    public Gantry copy() {
+        Gantry g = new Gantry(this.id, this.xMin, this.xMax, this.startX, this.startY, this.xSpeed, this.ySpeed);
+        g.setX(this.x);
+        g.setY(this.y);
+        g.setTime(this.time);
+        g.setItem(this.item);
+        return g;
     }
 
+    //GANTRY ACTIONS
     //Gantry verplaatsen van huidige locatie naar nieuwe locatie(destinationX,destinationY)
     public Move moveTo(int x, int y) {
         double xTime = (Math.abs(x - this.getX())) / this.getXSpeed();
@@ -134,41 +144,30 @@ public class Gantry {
         Gantry g = copy();
 
         Move move = new Move(g, x, y);
-        System.out.println("Moved Gantry to (" + x + ", " + y + ") time: " + this.time);
         return move;
 
     }
 
-    //Methode die item uit slot s in this gantry zet
+    //Methode die item uit slot s in this gantry zet en verwijdert uit slot
     public Move pickupItem(Slot s) {
         this.item = s.getItem();
+        s.removeItem();
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
-        System.out.println("Picked up " + this.item.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
     }
 
     //Methode die item uit this gantry in slot s plaatst en item uit gantry verwijdert
     public Move placeItem(Slot s) {
-        s.putItem(this.item);
-        Item i = this.item;
+        s.setItem(this.item);
         this.item = null;
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
-        System.out.println("Placed " + i.toString() + "at " + s.toString() + " time: " + this.time);
         return move;
     }
 
-    public Gantry copy() {
-        Gantry g = new Gantry(this.id, this.xMin, this.xMax, this.startX, this.startY, this.xSpeed, this.ySpeed);
-        g.setX(this.x);
-        g.setY(this.y);
-        g.setTime(this.time);
-        g.setItem(this.item);
-        return g;
-    }
 }
 
 

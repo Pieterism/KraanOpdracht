@@ -1,25 +1,25 @@
-
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Problem {
 
-    private final List<Job> inputJobSequence;
-    private final List<Job> outputJobSequence;
+    private List<Job> inputJobSequence;
+    private List<Job> outputJobSequence;
     private final List<Gantry> gantries;
     private final List<Slot> slots;
+    public static Slot OUTPUT_SLOT, INPUT_SLOT;
 
-    private Slot OUTPUT_SLOT, INPUT_SLOT;
     private List<Slot> availableSlots;
     private List<Slot> occupiedSlots;
     private List<Move> executedMoves;
 
     Problem(List<Job> inputJobSequence,
-                   List<Job> outputJobSequence,
-                   List<Gantry> gantries,
-                   List<Slot> slots) {
+            List<Job> outputJobSequence,
+            List<Gantry> gantries,
+            List<Slot> slots) {
         this.inputJobSequence = inputJobSequence;
         this.outputJobSequence = outputJobSequence;
         this.gantries = gantries;
@@ -32,35 +32,61 @@ public class Problem {
         createSlotField();
     }
 
+    //TODO
+    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+    public void solve() {
 
+        Gantry input_gantry = gantries.get(0);
+        Gantry output_gantry = gantries.get(0);
 
-    //linked-list voorstellig van slot veld
-    private void createSlotField() {
-        slots.forEach(this::setIfParent);
+        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
+        executedMoves.add(start);
+
+        for (Job j : inputJobSequence) {
+            Item item = j.getItem();
+            INPUT_SLOT.setItem(item);
+            inputItem(input_gantry, availableSlots.get(0));
+        }
+
+        for (Job j : outputJobSequence) {
+            Item item = j.getItem();
+            outputItem(output_gantry, getSlot(item));
+        }
+    }
+
+    // genereert linked list voorstelling van de slots
+    public void createSlotField() {
         slots.forEach(slot -> {
-            if(slot.isAvailable()) this.availableSlots.add(slot);
+            slots.forEach(slot1 -> {
+                if(slot1.isParent(slot)) slot.addParentSlot(slot);
+            });
+            if (slot.isAvailable()) this.availableSlots.add(slot);
             else this.occupiedSlots.add(slot);
         });
     }
 
-    private void setIfParent(Slot slot1) {
-        slots.forEach(slot2 -> {
-            isAParent(slot1, slot2);
-        });
-    }
-
-    private void isAParent(Slot slot1, Slot slot2) {
-        if (slot2.getZ() == slot1.getZ() + 1 && slot2.getCenterX() == slot1.getCenterX() && slot2.getCenterY() == slot1.getCenterY()) {
-            slot1.setParentSlot(slot2);
+    //loops all slots and determines if occupied or not
+    public void updateSlots() {
+        for (Slot s : slots) {
+            if (s.isAvailable()) {
+                this.availableSlots.add(s);
+            } else {
+                this.occupiedSlots.add(s);
+            }
         }
     }
 
     //geeft slot van bepaald item terug
-    private Slot getSlot(Item item) {
+    public Slot getSlot(Item item) {
         return occupiedSlots.stream()
                 .filter(slot -> slot.getItem() == item)
                 .findFirst()
                 .orElse(null);
+    }
+
+    //returns closest available slot
+    public Slot getClosestAvailableSlot(Slot s) {
+        return s.getClosestSlot(availableSlots);
     }
 
     //Kraan gantry verplaatsen naar een bepaald slot
@@ -68,49 +94,73 @@ public class Problem {
         executedMoves.add(gantry.moveTo(naar.getCenterX(), naar.getCenterY()));
     }
 
+    //ELEMENTARY OPERATIONS
     //Methode om gewenst item op de pikken uit slot s
-    //TODO rekening mee houden dat slot available moet zijn om item te kunnen oppikken! (eventueel andere items verplaatsen)
-    public void pickupItem(Gantry gantry, Slot s) {
+    public void pickupItemFromSlot(Gantry gantry, Slot slot) {
+        if (slot.isTopSlot()) {
+            executedMoves.add(new Move(gantry, getClosestAvailableSlot(slot).getCenterX(), getClosestAvailableSlot(slot).getCenterY()));
+        }else{
 
-        if (s.isTopSlot()) {
-            executedMoves.add(gantry.pickupItem(s));
-        } else {
-            if (s.hasAbove()) {
-                pickupItem(gantry, s.getParentSlot());
-            } else {
-                executedMoves.add(gantry.pickupItem(s));
-            }
+        }
+
+
+    }
+
+
+    //Methode om item in gantry te plaatsen in slot
+    public void placeItemInSlot(Gantry gantry, Slot slot) {
+
+        executedMoves.add(gantry.placeItem(slot));
+
+        if (!slot.equals(OUTPUT_SLOT)) {
+            occupiedSlots.add(slot);
+            availableSlots.remove(slot);
+            availableSlots.addAll(slot.getParentSlots());
         }
     }
 
-    //Methode om item in gantry te plaatsen in slot s
-    public void placeItem(Gantry gantry, Slot s) {
-        executedMoves.add(gantry.placeItem(s));
-        disableSlot(s);
-    }
-
-    //Methode op item te verplaatsen van slot s1 naar slot s2
+    //Methode op item te verplaatsen van slot s1 naar slot s2: move + pickup + move + place
     public void moveItem(Gantry gantry, Slot s1, Slot s2) {
         moveGantry(gantry, s1);
-        pickupItem(gantry, s1);
-        enableSlot(s1);
+        pickupItemFromSlot(gantry, s1);
         moveGantry(gantry, s2);
-        placeItem(gantry, s2);
+        placeItemInSlot(gantry, s2);
+        updateSlots();
+    }
+
+    public void moveParents(Gantry gantry, Slot slot) {
+        for (Slot parent : slot.getParentSlots()) {
+            if (parent.hasItem()) {
+                moveParents(gantry, parent);
+            }
+            //moveItem(gantry, parent, getAvailableSlot(slot.getAllSlotsAbove()));
+            moveGantry(gantry, slot);
+        }
+    }
+
+    private Slot getAvailableSlot(List<Slot> parentSlots) {
+        for (Slot s : availableSlots) {
+            if (!parentSlots.contains(s)) {
+                return s;
+            }
+        }
+        return null;
     }
 
     //Item oppikken op INPUT_SLOT en verplaatsen naar first available slot
     public void inputItem(Gantry gantry, Slot s) {
-        moveGantry(gantry, INPUT_SLOT);
-        pickupItem(gantry, INPUT_SLOT);
-        moveGantry(gantry, s);
-        placeItem(gantry, s);
-        disableSlot(s);
+        moveItem(gantry, INPUT_SLOT, availableSlots.get(0));
     }
 
     //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
-        Optional.ofNullable(s)
-                .ifPresent(slot -> moveItem(gantry, slot, OUTPUT_SLOT));
+        if (s.isTopSlot()) {
+            moveItem(gantry, s, OUTPUT_SLOT);
+        } else {
+            moveParents(gantry, s);
+
+        }
+
     }
 
     public void printMoves() {
@@ -121,7 +171,6 @@ public class Problem {
 
     public void createCSV(String OUTPUT_FILENAME) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
-
         String header = "gID;T;x;y;itemInCraneID\n";
 
         pw.write(header);
@@ -135,11 +184,6 @@ public class Problem {
 
     }
 
-    public Move getLastMove() {
-        Move m = executedMoves.get(executedMoves.size() - 1);
-        return m;
-    }
-
     public void setInputOutputSlots() {
         for (Slot s : slots) {
             if (s.getType() == Slot.SlotType.INPUT) {
@@ -151,38 +195,9 @@ public class Problem {
         }
     }
 
-    //add slot to occupied slots list and remove from available slots list
-    public void disableSlot(Slot s) {
-        availableSlots.remove(s);
-        occupiedSlots.add(s);
+    public void clearExecutedMoves() {
+        this.executedMoves.clear();
     }
 
-    //add slot to available slots list and remove from occupied slots list
-    public void enableSlot(Slot s) {
-        availableSlots.add(s);
-        s.removeItem();
-        occupiedSlots.remove(s);
-    }
 
-    //TODO
-    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
-    public void solve(String output) {
-
-        Gantry input_gantry = gantries.get(0);
-        Gantry output_gantry = gantries.get(0);
-
-        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
-        executedMoves.add(start);
-
-        for (Job j : inputJobSequence) {
-            Item item = j.getItem();
-            INPUT_SLOT.putItem(item);
-            inputItem(input_gantry, availableSlots.get(0));
-        }
-
-        for (Job j : outputJobSequence) {
-            Item item = j.getItem();
-            outputItem(output_gantry, getSlot(item));
-        }
-    }
 }

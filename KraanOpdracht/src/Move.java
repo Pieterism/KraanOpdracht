@@ -29,9 +29,7 @@ public class Move {
         this.destinationY = destinationY;
     }
 
-    public Item getItem() {
-        return gantry.getItem();
-    }
+    public Item getItem() { return  item;}
 
     public Gantry getGantry() {
         return gantry;
@@ -51,11 +49,11 @@ public class Move {
 
     @Override
     public String toString() {
-        return  "" + gantry.getId() +
+        return  gantry.getId() +
                 ";" + time +
                 ";" + destinationX +
                 ";" + destinationY +
-                ";" + gantry.getItem().getId();
+                ";" + gantry.getItem();
     }
 
 }

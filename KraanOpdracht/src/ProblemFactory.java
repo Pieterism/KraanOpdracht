@@ -1,5 +1,3 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,7 +5,6 @@ import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +116,8 @@ public class ProblemFactory {
                 outputJobList.add(job);
             }
 
-            Problem p = new Problem(inputJobList, outputJobList,  gantryList, slotList);
+            Problem p = new Problem(inputJobList, outputJobList, gantryList, slotList);
+            p.createSlotField();
             return p;
         }
 
