@@ -171,7 +171,8 @@ public class Slot {
     //returns true if slot is a parentslot of this
     public boolean isParent(Slot parentslot) {
         if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
-            if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
+            if(parentslot.getCenterX() == this.getCenterX()){
+            //if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
                 return true;
             }
         }

@@ -58,11 +58,15 @@ public class Problem {
     public void createSlotField() {
         slots.forEach(slot -> {
             slots.forEach(slot1 -> {
-                if(slot1.isParent(slot)) slot.addParentSlot(slot);
+                if(slot.isParent(slot1)) {
+                    slot.addParentSlot(slot1);
+                    slot1.addChildSlot(slot);
+                }
             });
             if (slot.isAvailable()) this.availableSlots.add(slot);
             else this.occupiedSlots.add(slot);
         });
+        setInputOutputSlots();
     }
 
     //loops all slots and determines if occupied or not
