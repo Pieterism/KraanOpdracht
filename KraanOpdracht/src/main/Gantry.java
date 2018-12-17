@@ -1,3 +1,5 @@
+package main;
+
 public class Gantry {
 
     private final int id;
@@ -132,7 +134,7 @@ public class Gantry {
     }
 
     //GANTRY ACTIONS
-    //Gantry verplaatsen van huidige locatie naar nieuwe locatie(destinationX,destinationY)
+    //main.Gantry verplaatsen van huidige locatie naar nieuwe locatie(destinationX,destinationY)
     public Move moveTo(int x, int y) {
         double xTime = (Math.abs(x - this.getX())) / this.getXSpeed();
         double yTime = (Math.abs(y - this.getY())) / this.getYSpeed();
@@ -152,21 +154,23 @@ public class Gantry {
     public Move pickupItem(Slot s) {
         this.item = s.getItem();
         s.removeItem();
-        this.time += 10;
-        Gantry g = copy();
-        Move move = new Move(g, this.x, this.y);
-        return move;
+        return getMove();
     }
 
     //Methode die item uit this gantry in slot s plaatst en item uit gantry verwijdert
     public Move placeItem(Slot s) {
         s.setItem(this.item);
         this.item = null;
+        return getMove();
+    }
+
+    private Move getMove() {
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
         return move;
     }
+
 
 }
 

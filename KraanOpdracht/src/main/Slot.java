@@ -1,7 +1,11 @@
+package main;
+
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Slot {
 
@@ -118,6 +122,11 @@ public class Slot {
         } else return false;
     }
 
+    public boolean isTopLayerSlot() {
+        if (this.parentSlots.isEmpty()) return true;
+        else return false;
+    }
+
     public boolean isTopSlot() {
         if (parentSlots.isEmpty() || parentSlots.stream().allMatch(slot -> !slot.hasItem())) return true;
         else return false;
@@ -131,36 +140,23 @@ public class Slot {
     }
 
     //Returns all slots interfering with this slot, empty and non empty
-    public Set<Slot> getOccupiedParentSlots() {
-        Set<Slot> result = new HashSet<>();
-        this.parentSlots.forEach(slot -> {
-            if (slot.isTopSlot()) {
-                if (slot.hasItem()) {
-                    result.add(slot);
-                }
-            } else {
-                if (slot.hasItem()) result.add(slot);
-                else slot.getOccupiedParentSlots();
-            }
-
-        });
-        return result;
+    public List<Slot> getOccupiedParentSlots() {
+        List<Slot> result = new ArrayList<>();
+        return this.getAllAboveSlots().stream().filter(slot -> slot.hasItem()).collect(Collectors.toList());
     }
 
-    //returns all slots where you cannot place the item if you just picked it up at this slot
-    public Set<Slot> toDisableSlotsAfterPickup() {
-        Set<Slot> result = new HashSet<>();
-        result.add(this);
-        this.parentSlots.forEach(slot -> {
-            if (slot.isTopSlot()) {
-                result.add(slot);
-            } else {
-                result.add(slot);
-                toDisableSlotsAfterPickup();
+    public List<Slot> getAllAboveSlots() {
+        List<Slot> result = new ArrayList<>();
+        for (Slot parent : this.getParentSlots()) {
+            if (!parent.isTopLayerSlot()) {
+                result.add(parent);
+                result.addAll(parent.getAllAboveSlots());
+            }else {
+                 result.add(parent);
+                 break;
             }
-        });
+        }
         return result;
-
     }
 
     //return all slots that should be enabled when item is placed in this slot
@@ -168,11 +164,15 @@ public class Slot {
         return this.parentSlots;
     }
 
+    public boolean hasParents() {
+        return parentSlots.stream().anyMatch(parent -> parent.hasItem());
+    }
+
     //returns true if slot is a parentslot of this
     public boolean isParent(Slot parentslot) {
         if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
-            if(parentslot.getCenterX() == this.getCenterX()){
-            //if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
+            if (parentslot.getCenterX() == this.getCenterX()) {
+                //if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
                 return true;
             }
         }
@@ -194,7 +194,7 @@ public class Slot {
 
     @Override
     public String toString() {
-        return String.format("Slot %d (%d,%d,%d)", id, centerX, centerY, z);
+        return String.format("main.Slot %d (%d,%d,%d)", id, centerX, centerY, z);
     }
 
     public static enum SlotType {

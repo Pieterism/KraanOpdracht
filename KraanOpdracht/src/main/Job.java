@@ -1,3 +1,5 @@
+package main;
+
 public class Job {
 
     private final int id;

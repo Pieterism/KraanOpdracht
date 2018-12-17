@@ -1,3 +1,5 @@
+package main;
+
 public class Item {
 
     private final int id;

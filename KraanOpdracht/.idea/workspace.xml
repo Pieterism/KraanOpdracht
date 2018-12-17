@@ -3,14 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="08b949cb-b0a5-4525-963e-30a1b6a9b2c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Gantry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Gantry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Problem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Problem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot$SlotType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot$SlotType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Slot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Gantry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Job$Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Job$TaskType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Job.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Problem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot$SlotType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KraanOpdracht/Slot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gantry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Gantry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProblemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ProblemFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Slot.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,79 +33,94 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Slot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="174" column="14" selection-start-line="174" selection-start-column="14" selection-end-line="174" selection-end-column="14" />
-              <folding>
-                <element signature="e#346#811#0" />
-                <element signature="e#1550#1551#0" expanded="true" />
-                <element signature="e#1596#1597#0" expanded="true" />
-                <element signature="e#4981#4982#0" expanded="true" />
-                <element signature="e#4924#5006#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProblemFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Problem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-              <folding>
-                <element signature="e#2846#2847#0" expanded="true" />
-                <element signature="e#4830#4831#0" expanded="true" />
-                <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-                <element signature="e#5966#5967#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-              <folding>
-                <element signature="e#771#772#0" expanded="true" />
-                <element signature="e#800#801#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#880#881#0" expanded="true" />
-                <element signature="e#911#912#0" expanded="true" />
-                <element signature="e#938#939#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="21" column="27" selection-start-line="21" selection-end-line="22" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="423">
+                  <caret line="157" column="11" selection-start-line="157" selection-start-column="11" selection-end-line="157" selection-end-column="11" />
+                  <folding>
+                    <element signature="method#Problem#0;class#Problem#0" />
+                    <element signature="method#createSlotField#0;class#Problem#0" />
+                    <element signature="method#updateSlots#0;class#Problem#0" />
+                    <element signature="method#getSlot#0;class#Problem#0" />
+                    <element signature="method#moveGantry#0;class#Problem#0" />
+                    <element signature="method#printMoves#0;class#Problem#0" />
+                    <element signature="method#setInputOutputSlots#0;class#Problem#0" />
+                    <element signature="e#6013#6014#0" expanded="true" />
+                    <element signature="e#6055#6056#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/Slot.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="190">
+                  <caret line="153" column="19" lean-forward="true" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#3856#3857#0" expanded="true" />
+                    <element signature="e#3895#3896#0" expanded="true" />
+                    <element signature="e#3930#3931#0" expanded="true" />
+                    <element signature="e#4010#4011#0" expanded="true" />
+                    <element signature="e#4901#4902#0" expanded="true" />
+                    <element signature="e#4989#4990#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1103">
+                  <caret line="167" column="50" lean-forward="true" selection-start-line="167" selection-start-column="50" selection-end-line="167" selection-end-column="50" />
+                  <folding>
+                    <element signature="method#Problem#0;class#Problem#0" />
+                    <element signature="method#createSlotField#0;class#Problem#0" />
+                    <element signature="method#updateSlots#0;class#Problem#0" />
+                    <element signature="method#getSlot#0;class#Problem#0" />
+                    <element signature="method#moveGantry#0;class#Problem#0" />
+                    <element signature="method#printMoves#0;class#Problem#0" />
+                    <element signature="method#setInputOutputSlots#0;class#Problem#0" />
+                    <element signature="e#6195#6196#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -107,6 +132,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>input</find>
+      <find>1471</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,17 +148,21 @@
         <option value="$PROJECT_DIR$/src/Item.java" />
         <option value="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" />
         <option value="$PROJECT_DIR$/src/Move.java" />
+        <option value="$PROJECT_DIR$/src/Slot.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Problem.java" />
-        <option value="$PROJECT_DIR$/src/Slot.java" />
+        <option value="$PROJECT_DIR$/src/test/SlotTest.java" />
+        <option value="$PROJECT_DIR$/src/main/Gantry.java" />
+        <option value="$PROJECT_DIR$/src/main/Slot.java" />
+        <option value="$PROJECT_DIR$/src/main/Problem.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-1088" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="104" />
+    <option name="y" value="-936" />
+    <option name="width" value="1552" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -140,8 +170,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,6 +184,12 @@
               <item name="KraanOpdracht" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Kraanopdracht" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KraanOpdracht" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -163,7 +199,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542889052119" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545044480471" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -189,10 +226,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="KraanOpdracht" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SlotTest.pickupSlotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="KraanOpdracht" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.SlotTest" />
+      <option name="METHOD_NAME" value="pickupSlotTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,6 +253,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SlotTest.pickupSlotTest" />
       </list>
     </recent_temporary>
   </component>
@@ -220,18 +274,25 @@
       <workItem from="1541611454806" duration="594000" />
       <workItem from="1541692949713" duration="4664000" />
       <workItem from="1542887763921" duration="1237000" />
-      <workItem from="1544817056760" duration="1046000" />
+      <workItem from="1544817056760" duration="12381000" />
+      <workItem from="1544877501174" duration="22910000" />
+      <workItem from="1544950918929" duration="8755000" />
+      <workItem from="1545037922601" duration="5602000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="SlotTest_pickupSlotTest - 2018.12.15 at 11h 55m 04s.xml">
+      <configuration name="SlotTest.pickupSlotTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37602000" />
+    <option name="totallyTimeSpent" value="86204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1401919" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10181237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -239,20 +300,19 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43926248" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37486458" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31419286" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3445287" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3275488" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32577905" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -262,9 +322,10 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17248322" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10181237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -273,17 +334,18 @@
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6619718" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37588653" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31444758" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3445287" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32827735" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32577905" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -293,6 +355,7 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,62 +365,61 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Problem.java</url>
-          <line>170</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>17</line>
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>16</line>
           <properties />
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
+          <line>153</line>
+          <properties />
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="slots.get(1000)" language="JAVA" />
-        <watch expression="p.slots.get(1000)" language="JAVA" />
-        <watch expression="p.slots.get(2000)" language="JAVA" />
+        <watch expression="slot.getAllAboveSlots()" language="JAVA" />
+        <watch expression="slot.getOccupiedParentSlots()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>p.slots.get(2000)</expression-string>
+        <expression-string>slot.getOccupiedParentSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p.slots.get(1000)</expression-string>
+        <expression-string>slot.getAllAboveSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p.OUTPUT_SLOT</expression-string>
+        <expression-string>s.getOccupiedParentSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>p.INPUT_SLOT</expression-string>
+        <expression-string>s.getAllAboveSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>slots.get(1000)</expression-string>
+        <expression-string>this.getOccupiedParentSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this.getParentSlot().getItem()</expression-string>
+        <expression-string>this.getAllAboveSlots()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -367,50 +429,24 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>slots.get(OUTPUT_SLOT)</expression-string>
+        <expression-string>getSlot(new Item(898))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>slot.isTopSlot()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>getSlot(new Item(1722))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="848">
-          <caret line="54976" column="5" selection-start-line="54976" selection-start-column="5" selection-end-line="54976" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Job.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-          <folding>
-            <element signature="method#toString#0;class#Task#0;class#Job#0" />
-            <element signature="class#TaskType#0;class#Job#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CSVUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/Gantry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="method#Gantry#0;class#Gantry#0" />
-            <element signature="method#getOverlapArea#0;class#Gantry#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
@@ -425,19 +461,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Move.java">
+    <entry file="file://$PROJECT_DIR$/src/test/SlotTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#880#881#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="method#toString#0;class#Task#0;class#Job#0" />
+            <element signature="class#TaskType#0;class#Job#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ProblemFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="method#fromJson#0;class#ProblemFactory#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1_10_100_4_FALSE_65_50_50.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="934592">
+          <caret line="54976" column="5" selection-start-line="54976" selection-start-column="5" selection-end-line="54976" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Gantry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="170" column="20" lean-forward="true" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
+          <folding>
+            <element signature="method#Gantry#0;class#Gantry#0" />
+            <element signature="method#getOverlapArea#0;class#Gantry#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="27" selection-start-line="21" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -445,46 +528,37 @@
     <entry file="file://$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProblemFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Slot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="190">
+          <caret line="153" column="19" lean-forward="true" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3856#3857#0" expanded="true" />
+            <element signature="e#3895#3896#0" expanded="true" />
+            <element signature="e#3930#3931#0" expanded="true" />
+            <element signature="e#4010#4011#0" expanded="true" />
+            <element signature="e#4901#4902#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Problem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        <state relative-caret-position="1103">
+          <caret line="167" column="50" lean-forward="true" selection-start-line="167" selection-start-column="50" selection-end-line="167" selection-end-column="50" />
           <folding>
-            <element signature="e#2846#2847#0" expanded="true" />
-            <element signature="e#4830#4831#0" expanded="true" />
+            <element signature="method#Problem#0;class#Problem#0" />
+            <element signature="method#createSlotField#0;class#Problem#0" />
+            <element signature="method#updateSlots#0;class#Problem#0" />
+            <element signature="method#getSlot#0;class#Problem#0" />
+            <element signature="method#moveGantry#0;class#Problem#0" />
+            <element signature="method#printMoves#0;class#Problem#0" />
             <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-            <element signature="e#5966#5967#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Slot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="174" column="14" selection-start-line="174" selection-start-column="14" selection-end-line="174" selection-end-column="14" />
-          <folding>
-            <element signature="e#346#811#0" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#4981#4982#0" expanded="true" />
-            <element signature="e#4924#5006#0" />
+            <element signature="e#6195#6196#0" expanded="true" />
           </folding>
         </state>
       </provider>

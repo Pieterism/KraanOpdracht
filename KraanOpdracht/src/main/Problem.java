@@ -1,8 +1,11 @@
+package main;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Problem {
 
@@ -14,6 +17,8 @@ public class Problem {
 
     private List<Slot> availableSlots;
     private List<Slot> occupiedSlots;
+    private List<Slot> tempDisabledSlots;
+    private List<Slot> tempEnabledSlots;
     private List<Move> executedMoves;
 
     Problem(List<Job> inputJobSequence,
@@ -28,6 +33,7 @@ public class Problem {
         availableSlots = new ArrayList<>();
         occupiedSlots = new ArrayList<>();
         executedMoves = new ArrayList<>();
+        tempDisabledSlots = new ArrayList<>();
         setInputOutputSlots();
         createSlotField();
     }
@@ -45,7 +51,7 @@ public class Problem {
         for (Job j : inputJobSequence) {
             Item item = j.getItem();
             INPUT_SLOT.setItem(item);
-            inputItem(input_gantry, availableSlots.get(0));
+            inputItem(input_gantry, getClosestAvailableSlot(INPUT_SLOT));
         }
 
         for (Job j : outputJobSequence) {
@@ -58,7 +64,7 @@ public class Problem {
     public void createSlotField() {
         slots.forEach(slot -> {
             slots.forEach(slot1 -> {
-                if(slot.isParent(slot1)) {
+                if (slot.isParent(slot1)) {
                     slot.addParentSlot(slot1);
                     slot1.addChildSlot(slot);
                 }
@@ -71,13 +77,12 @@ public class Problem {
 
     //loops all slots and determines if occupied or not
     public void updateSlots() {
-        for (Slot s : slots) {
-            if (s.isAvailable()) {
-                this.availableSlots.add(s);
-            } else {
-                this.occupiedSlots.add(s);
-            }
-        }
+        availableSlots.clear();
+        occupiedSlots.clear();
+        slots.forEach(slot -> {
+            if (slot.hasItem()) occupiedSlots.add(slot);
+            else availableSlots.add(slot);
+        });
     }
 
     //geeft slot van bepaald item terug
@@ -90,7 +95,11 @@ public class Problem {
 
     //returns closest available slot
     public Slot getClosestAvailableSlot(Slot s) {
-        return s.getClosestSlot(availableSlots);
+        List<Slot> tempAvailableSlots = new ArrayList(availableSlots);
+        tempAvailableSlots.removeAll(tempDisabledSlots);
+        tempAvailableSlots.remove(INPUT_SLOT);
+        tempAvailableSlots.remove(OUTPUT_SLOT);
+        return s.getClosestSlot(tempAvailableSlots);
     }
 
     //Kraan gantry verplaatsen naar een bepaald slot
@@ -101,28 +110,19 @@ public class Problem {
     //ELEMENTARY OPERATIONS
     //Methode om gewenst item op de pikken uit slot s
     public void pickupItemFromSlot(Gantry gantry, Slot slot) {
-        if (slot.isTopSlot()) {
-            executedMoves.add(new Move(gantry, getClosestAvailableSlot(slot).getCenterX(), getClosestAvailableSlot(slot).getCenterY()));
-        }else{
-
-        }
-
-
+        if (!slot.isTopSlot()) System.out.println("ERROR SLOT NOT AVAILABLE PICKUP");
+        executedMoves.add(gantry.pickupItem(slot));
+        updateSlots();
     }
-
 
     //Methode om item in gantry te plaatsen in slot
     public void placeItemInSlot(Gantry gantry, Slot slot) {
-
+        if (!slot.isAvailable() && !slot.equals(OUTPUT_SLOT)) System.out.println("ERROR SLOT NOT AVAILABLE PLACE");
         executedMoves.add(gantry.placeItem(slot));
-
-        if (!slot.equals(OUTPUT_SLOT)) {
-            occupiedSlots.add(slot);
-            availableSlots.remove(slot);
-            availableSlots.addAll(slot.getParentSlots());
-        }
+        updateSlots();
     }
 
+    //TODO
     //Methode op item te verplaatsen van slot s1 naar slot s2: move + pickup + move + place
     public void moveItem(Gantry gantry, Slot s1, Slot s2) {
         moveGantry(gantry, s1);
@@ -132,41 +132,33 @@ public class Problem {
         updateSlots();
     }
 
-    public void moveParents(Gantry gantry, Slot slot) {
-        for (Slot parent : slot.getParentSlots()) {
-            if (parent.hasItem()) {
-                moveParents(gantry, parent);
-            }
-            //moveItem(gantry, parent, getAvailableSlot(slot.getAllSlotsAbove()));
-            moveGantry(gantry, slot);
-        }
-    }
-
-    private Slot getAvailableSlot(List<Slot> parentSlots) {
-        for (Slot s : availableSlots) {
-            if (!parentSlots.contains(s)) {
-                return s;
-            }
-        }
-        return null;
-    }
-
-    //Item oppikken op INPUT_SLOT en verplaatsen naar first available slot
+    //TODO
     public void inputItem(Gantry gantry, Slot s) {
         moveItem(gantry, INPUT_SLOT, availableSlots.get(0));
     }
 
-    //Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
+    //main.Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
-        if (s.isTopSlot()) {
+        if (s.getOccupiedParentSlots().isEmpty()) moveItem(gantry, s, OUTPUT_SLOT);
+        else {
+            tempDisabledSlots.addAll(s.getAllAboveSlots());
+            tempDisabledSlots.add(s);
+            moveParents(gantry, s.getParentSlots());
             moveItem(gantry, s, OUTPUT_SLOT);
-        } else {
-            moveParents(gantry, s);
-
         }
-
     }
 
+    //TODO
+    private void moveParents(Gantry gantry, Set<Slot> slots) {
+        slots.forEach(parentslot -> {
+            if (!parentslot.isTopSlot()) {
+                moveParents(gantry, parentslot.getParentSlots());
+            }
+            moveItem(gantry, parentslot, getClosestAvailableSlot(parentslot));
+        });
+    }
+
+    //TODO
     public void printMoves() {
         for (Move m : executedMoves) {
             System.out.println(m.toString());
@@ -185,7 +177,6 @@ public class Problem {
         }
 
         pw.close();
-
     }
 
     public void setInputOutputSlots() {

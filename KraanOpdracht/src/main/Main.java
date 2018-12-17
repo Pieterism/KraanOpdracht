@@ -1,3 +1,5 @@
+package main;
+
 import org.json.simple.parser.ParseException;
 
 import java.io.File;
@@ -13,7 +15,6 @@ public class Main {
             //String INPUT_FILENAME = args[0];
             //String OUTPUT_FILENAME = args[1];
 
-            new ProblemFactory();
             Problem p = ProblemFactory.fromJson(new File(INPUT_FILENAME));
             System.out.println("Input OK.");
 
