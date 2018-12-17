@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Problem {
 
@@ -114,7 +115,7 @@ public class Problem {
 
     //returns closest available slot
     public Slot getClosestAvailableSlot(Slot s) {
-        List<Slot> tempAvailableSlots = new ArrayList(availableSlots);
+        List<Slot> tempAvailableSlots = availableSlots.stream().filter(slot -> slot.occupiedChildSlots()).collect(Collectors.toList());
         tempAvailableSlots.removeAll(tempDisabledSlots);
         tempAvailableSlots.remove(INPUT_SLOT);
         tempAvailableSlots.remove(OUTPUT_SLOT);

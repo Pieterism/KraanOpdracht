@@ -151,12 +151,17 @@ public class Slot {
             if (!parent.isTopLayerSlot()) {
                 result.add(parent);
                 result.addAll(parent.getAllAboveSlots());
-            }else {
-                 result.add(parent);
-                 break;
+            } else {
+                result.add(parent);
             }
         }
         return result;
+    }
+
+    public boolean occupiedChildSlots() {
+        if (this.isBottomLayerSlot()) return true;
+        else return this.childSlots.stream().allMatch(childslot -> childslot.hasItem());
+
     }
 
     public boolean hasParents() {
@@ -176,7 +181,7 @@ public class Slot {
     //returns true if slot is a parentslot of this
     public boolean isParentGeschrankt(Slot parentslot) {
         if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
-                if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
+            if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
                 return true;
             }
         }
