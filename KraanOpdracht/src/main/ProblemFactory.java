@@ -119,6 +119,8 @@ public class ProblemFactory {
             }
 
             Problem p = new Problem(inputJobList, outputJobList, gantryList, slotList);
+            if (file.getName().contains("FALSE")) p.setGeschrankt(false);
+            else p.setGeschrankt(true);
             p.createSlotField();
             return p;
         }

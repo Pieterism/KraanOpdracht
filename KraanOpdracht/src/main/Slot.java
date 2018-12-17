@@ -159,20 +159,24 @@ public class Slot {
         return result;
     }
 
-    //return all slots that should be enabled when item is placed in this slot
-    public Set<Slot> toEnableSlotsAfterPlace() {
-        return this.parentSlots;
-    }
-
     public boolean hasParents() {
         return parentSlots.stream().anyMatch(parent -> parent.hasItem());
     }
 
     //returns true if slot is a parentslot of this
-    public boolean isParent(Slot parentslot) {
+    public boolean isParentGestapeld(Slot parentslot) {
         if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
             if (parentslot.getCenterX() == this.getCenterX()) {
-                //if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //returns true if slot is a parentslot of this
+    public boolean isParentGeschrankt(Slot parentslot) {
+        if (parentslot.getZ() == this.getZ() + 1 && this.getCenterY() == parentslot.getCenterY()) {
+                if (parentslot.getXMin() == this.getCenterX() || parentslot.getXMax() == this.getCenterX()) {
                 return true;
             }
         }

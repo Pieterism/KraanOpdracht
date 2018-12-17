@@ -14,6 +14,7 @@ public class Problem {
     private final List<Gantry> gantries;
     private final List<Slot> slots;
     public static Slot OUTPUT_SLOT, INPUT_SLOT;
+    private boolean geschrankt;
 
     private List<Slot> availableSlots;
     private List<Slot> occupiedSlots;
@@ -60,18 +61,36 @@ public class Problem {
         }
     }
 
+    public void setGeschrankt(boolean b) {
+        this.geschrankt = b;
+    }
+
     // genereert linked list voorstelling van de slots
     public void createSlotField() {
-        slots.forEach(slot -> {
-            slots.forEach(slot1 -> {
-                if (slot.isParent(slot1)) {
-                    slot.addParentSlot(slot1);
-                    slot1.addChildSlot(slot);
-                }
+        if (geschrankt) {
+            slots.forEach(slot -> {
+                slots.forEach(s -> {
+                    if (slot.isParentGeschrankt(s)) {
+                        slot.addParentSlot(s);
+                        s.addChildSlot(slot);
+                    }
+                });
+                if (slot.isAvailable()) this.availableSlots.add(slot);
+                else this.occupiedSlots.add(slot);
             });
-            if (slot.isAvailable()) this.availableSlots.add(slot);
-            else this.occupiedSlots.add(slot);
-        });
+        } else {
+            slots.forEach(slot -> {
+                slots.forEach(s -> {
+                    if (slot.isParentGestapeld(s)) {
+                        slot.addParentSlot(s);
+                        s.addChildSlot(slot);
+                    }
+                });
+                if (slot.isAvailable()) this.availableSlots.add(slot);
+                else this.occupiedSlots.add(slot);
+            });
+        }
+
         setInputOutputSlots();
     }
 
@@ -122,7 +141,6 @@ public class Problem {
         updateSlots();
     }
 
-    //TODO
     //Methode op item te verplaatsen van slot s1 naar slot s2: move + pickup + move + place
     public void moveItem(Gantry gantry, Slot s1, Slot s2) {
         moveGantry(gantry, s1);
@@ -132,12 +150,10 @@ public class Problem {
         updateSlots();
     }
 
-    //TODO
     public void inputItem(Gantry gantry, Slot s) {
         moveItem(gantry, INPUT_SLOT, availableSlots.get(0));
     }
 
-    //main.Item oppikken in slot s, en verplaatsen naar OUTPUT_SLOT
     public void outputItem(Gantry gantry, Slot s) {
         if (s.getOccupiedParentSlots().isEmpty()) moveItem(gantry, s, OUTPUT_SLOT);
         else {
@@ -148,7 +164,6 @@ public class Problem {
         }
     }
 
-    //TODO
     private void moveParents(Gantry gantry, Set<Slot> slots) {
         slots.forEach(parentslot -> {
             if (!parentslot.isTopSlot()) {
@@ -158,7 +173,6 @@ public class Problem {
         });
     }
 
-    //TODO
     public void printMoves() {
         for (Move m : executedMoves) {
             System.out.println(m.toString());
@@ -193,6 +207,5 @@ public class Problem {
     public void clearExecutedMoves() {
         this.executedMoves.clear();
     }
-
 
 }
