@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-        String INPUT_FILENAME = "1_10_100_4_TRUE_65_50_50.json";
+        String INPUT_FILENAME = "1_10_100_5_TRUE_65_65_100.json";
         String OUTPUT_FILENAME = "Output_Kraanopdracht_Groep4.csv";
         try {
 
@@ -16,14 +16,11 @@ public class Main {
             //String OUTPUT_FILENAME = args[1];
 
             Problem p = ProblemFactory.fromJson(new File(INPUT_FILENAME));
-            System.out.println("Input OK.");
-
+                System.out.println("Input OK.");
             p.solve();
             p.createCSV(OUTPUT_FILENAME);
-            p.clearExecutedMoves();
 
             System.out.println("Done.");
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {

@@ -43,23 +43,41 @@ public class Problem {
     //TODO
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve() {
+        List<Job> restingOutputJobs = new ArrayList<>();
 
-        Gantry input_gantry = gantries.get(0);
-        Gantry output_gantry = gantries.get(0);
+        if (this.gantries.size() == 1) {
+            Gantry gantry = gantries.get(0);
 
-        Move start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
-        executedMoves.add(start);
+            Move start = new Move(gantry, gantry.getStartX(), gantry.getStartY());
+            executedMoves.add(start);
 
-        for (Job j : inputJobSequence) {
-            Item item = j.getItem();
-            INPUT_SLOT.setItem(item);
-            inputItem(input_gantry, getClosestAvailableSlot(INPUT_SLOT));
+            inputJobSequence.forEach(job -> {
+                Item item = job.getItem();
+                INPUT_SLOT.setItem(item);
+                if (getOutputJob(item) == null) inputItem(gantry, getClosestAvailableSlot(INPUT_SLOT));
+                else inputItem(gantry, OUTPUT_SLOT);
+            });
+            outputJobSequence.forEach(job -> {
+                Item item = job.getItem();
+                if (getSlot(item) == null) {
+                    restingOutputJobs.add(job);
+                } else {
+                    outputItem(gantry, getSlot(item));
+                }
+            });
+        } else if (this.gantries.size() == 2) {
+            Gantry input_gantry = gantries.get(0);
+            Gantry output_gantry = gantries.get(1);
+
+            Move input_start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
+            Move output_start = new Move(output_gantry, output_gantry.getStartX(), output_gantry.getStartY());
+            executedMoves.add(input_start);
+            executedMoves.add(output_start);
         }
+    }
 
-        for (Job j : outputJobSequence) {
-            Item item = j.getItem();
-            outputItem(output_gantry, getSlot(item));
-        }
+    private Job getOutputJob(Item item) {
+        return outputJobSequence.stream().filter(job -> job.getItem() == item).findAny().orElse(null);
     }
 
     public void setGeschrankt(boolean b) {
@@ -156,6 +174,7 @@ public class Problem {
     }
 
     public void outputItem(Gantry gantry, Slot s) {
+        tempDisabledSlots.clear();
         if (s.getOccupiedParentSlots().isEmpty()) moveItem(gantry, s, OUTPUT_SLOT);
         else {
             tempDisabledSlots.addAll(s.getAllAboveSlots());
@@ -192,6 +211,7 @@ public class Problem {
         }
 
         pw.close();
+        clearExecutedMoves();
     }
 
     public void setInputOutputSlots() {
@@ -207,6 +227,10 @@ public class Problem {
 
     public void clearExecutedMoves() {
         this.executedMoves.clear();
+    }
+
+    public List<Gantry> getGantries() {
+        return this.gantries;
     }
 
 }

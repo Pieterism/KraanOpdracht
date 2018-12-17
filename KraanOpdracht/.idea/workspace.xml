@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08b949cb-b0a5-4525-963e-30a1b6a9b2c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Slot.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,13 +31,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="192">
+              <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
-                <element signature="method#Problem#0;class#Problem#0" />
+                <element signature="e#2922#2923#0" expanded="true" />
                 <element signature="method#createSlotField#0;class#Problem#0" />
                 <element signature="method#updateSlots#0;class#Problem#0" />
                 <element signature="method#getSlot#0;class#Problem#0" />
@@ -44,22 +45,24 @@
                 <element signature="method#moveGantry#0;class#Problem#0" />
                 <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
                 <element signature="method#placeItemInSlot#0;class#Problem#0" />
-                <element signature="method#moveItem#0;class#Problem#0" />
-                <element signature="method#outputItem#0;class#Problem#0" />
-                <element signature="method#moveParents#0;class#Problem#0" />
+                <element signature="e#5195#5263#1" />
+                <element signature="e#6138#6139#0" expanded="true" />
                 <element signature="method#printMoves#0;class#Problem#0" />
                 <element signature="method#createCSV#0;class#Problem#0" />
                 <element signature="method#setInputOutputSlots#0;class#Problem#0" />
+                <element signature="e#7763#7764#0" expanded="true" />
+                <element signature="n#!!block;n#getGantries#0;n#Problem#0" />
+                <element signature="e#7840#7841#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="229" selection-start-line="229" selection-end-line="246" selection-end-column="21" />
+            <state relative-caret-position="179">
+              <caret line="1059" column="20" selection-start-line="1059" selection-start-column="16" selection-end-line="1059" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -78,6 +81,9 @@
       <find>input</find>
       <find>1471</find>
       <find>1903</find>
+      <find>3250</find>
+      <find>tempdisabledslots</find>
+      <find>3185</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -100,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/main/Gantry.java" />
         <option value="$PROJECT_DIR$/src/main/ProblemFactory.java" />
         <option value="$PROJECT_DIR$/1_10_100_5_FALSE_65_65_100.json" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/Slot.java" />
+        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/Problem.java" />
       </list>
     </option>
@@ -147,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545049536436" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545056328301" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -225,7 +231,7 @@
       <workItem from="1544817056760" duration="12381000" />
       <workItem from="1544877501174" duration="22910000" />
       <workItem from="1544950918929" duration="8755000" />
-      <workItem from="1545037922601" duration="10085000" />
+      <workItem from="1545037922601" duration="14889000" />
     </task>
     <servers />
   </component>
@@ -235,7 +241,16 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90687000" />
+    <option name="totallyTimeSpent" value="95491000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
@@ -255,7 +270,7 @@
       <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3445287" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" weight="0.32827735" />
@@ -311,37 +326,19 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
-          <line>169</line>
-          <properties />
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="slot.getAllAboveSlots()" language="JAVA" />
-        <watch expression="slot.getOccupiedParentSlots()" language="JAVA" />
+        <watch expression="getSlot(item)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>getSlot(item)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>slot.getOccupiedParentSlots()</expression-string>
         <language-id>JAVA</language-id>
@@ -373,22 +370,12 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>getSlot(item)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
         <expression-string>getSlot(new Item(898))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>slot.isTopSlot()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>getSlot(new Item(1722))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -476,8 +463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Slot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="161" column="40" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
+        <state relative-caret-position="296">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="e#425#890#0" />
             <element signature="e#1967#2110#0" />
@@ -486,43 +473,20 @@
             <element signature="e#2619#2786#0" />
             <element signature="e#2792#3044#0" />
             <element signature="e#3050#3328#0" />
-            <element signature="e#3334#3743#0" />
-            <element signature="e#3753#3895#0" />
-            <element signature="e#3864#4211#0" />
-            <element signature="e#4217#4611#0" />
-            <element signature="e#4617#5000#0" />
-            <element signature="e#5140#5222#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="method#Problem#0;class#Problem#0" />
-            <element signature="method#createSlotField#0;class#Problem#0" />
-            <element signature="method#updateSlots#0;class#Problem#0" />
-            <element signature="method#getSlot#0;class#Problem#0" />
-            <element signature="method#getClosestAvailableSlot#0;class#Problem#0" />
-            <element signature="method#moveGantry#0;class#Problem#0" />
-            <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
-            <element signature="method#placeItemInSlot#0;class#Problem#0" />
-            <element signature="method#moveItem#0;class#Problem#0" />
-            <element signature="method#outputItem#0;class#Problem#0" />
-            <element signature="method#moveParents#0;class#Problem#0" />
-            <element signature="method#printMoves#0;class#Problem#0" />
-            <element signature="method#createCSV#0;class#Problem#0" />
-            <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/2_10_100_4_FALSE_65_50_50.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2_10_100_4_TRUE_65_50_50.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -531,8 +495,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="229" selection-start-line="229" selection-end-line="246" selection-end-column="21" />
+        <state relative-caret-position="179">
+          <caret line="1059" column="20" selection-start-line="1059" selection-start-column="16" selection-end-line="1059" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#2922#2923#0" expanded="true" />
+            <element signature="method#createSlotField#0;class#Problem#0" />
+            <element signature="method#updateSlots#0;class#Problem#0" />
+            <element signature="method#getSlot#0;class#Problem#0" />
+            <element signature="method#getClosestAvailableSlot#0;class#Problem#0" />
+            <element signature="method#moveGantry#0;class#Problem#0" />
+            <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
+            <element signature="method#placeItemInSlot#0;class#Problem#0" />
+            <element signature="e#5195#5263#1" />
+            <element signature="e#6138#6139#0" expanded="true" />
+            <element signature="method#printMoves#0;class#Problem#0" />
+            <element signature="method#createCSV#0;class#Problem#0" />
+            <element signature="method#setInputOutputSlots#0;class#Problem#0" />
+            <element signature="e#7763#7764#0" expanded="true" />
+            <element signature="n#!!block;n#getGantries#0;n#Problem#0" />
+            <element signature="e#7840#7841#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
