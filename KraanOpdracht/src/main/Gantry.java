@@ -1,11 +1,15 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Gantry {
 
     private final int id;
     private final int xMin, xMax;
     private final int startX, startY;
     private final double xSpeed, ySpeed;
+    private List<Move> executedMoves;
 
     private int x, y;
     private double time;
@@ -23,6 +27,7 @@ public class Gantry {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         this.item = null;
+        this.executedMoves = new ArrayList<>();
     }
 
     public int getId() {
@@ -99,6 +104,22 @@ public class Gantry {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public List<Move> getExecutedMoves() {
+        return executedMoves;
+    }
+
+    public void setExecutedMoves(List<Move> executedMoves) {
+        this.executedMoves = executedMoves;
+    }
+
+    public void addMove(Move m) {
+        this.executedMoves.add(m);
+    }
+
+    public void clearMoves() {
+        this.executedMoves.clear();
     }
 
     public boolean overlapsGantryArea(Gantry g) {

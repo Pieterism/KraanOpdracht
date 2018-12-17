@@ -21,7 +21,6 @@ public class Problem {
     private List<Slot> occupiedSlots;
     private List<Slot> tempDisabledSlots;
     private List<Slot> tempEnabledSlots;
-    private List<Move> executedMoves;
 
     Problem(List<Job> inputJobSequence,
             List<Job> outputJobSequence,
@@ -34,7 +33,6 @@ public class Problem {
 
         availableSlots = new ArrayList<>();
         occupiedSlots = new ArrayList<>();
-        executedMoves = new ArrayList<>();
         tempDisabledSlots = new ArrayList<>();
         setInputOutputSlots();
         createSlotField();
@@ -49,7 +47,7 @@ public class Problem {
             Gantry gantry = gantries.get(0);
 
             Move start = new Move(gantry, gantry.getStartX(), gantry.getStartY());
-            executedMoves.add(start);
+            gantry.addMove(start);
 
             inputJobSequence.forEach(job -> {
                 Item item = job.getItem();
@@ -71,8 +69,8 @@ public class Problem {
 
             Move input_start = new Move(input_gantry, input_gantry.getStartX(), input_gantry.getStartY());
             Move output_start = new Move(output_gantry, output_gantry.getStartX(), output_gantry.getStartY());
-            executedMoves.add(input_start);
-            executedMoves.add(output_start);
+            input_gantry.addMove(input_start);
+            output_gantry.addMove(output_start);
         }
     }
 
@@ -142,21 +140,21 @@ public class Problem {
 
     //Kraan gantry verplaatsen naar een bepaald slot
     public void moveGantry(Gantry gantry, Slot naar) {
-        executedMoves.add(gantry.moveTo(naar.getCenterX(), naar.getCenterY()));
+        gantry.addMove(gantry.moveTo(naar.getCenterX(), naar.getCenterY()));
     }
 
     //ELEMENTARY OPERATIONS
     //Methode om gewenst item op de pikken uit slot s
     public void pickupItemFromSlot(Gantry gantry, Slot slot) {
         if (!slot.isTopSlot()) System.out.println("ERROR SLOT NOT AVAILABLE PICKUP");
-        executedMoves.add(gantry.pickupItem(slot));
+        gantry.addMove(gantry.pickupItem(slot));
         updateSlots();
     }
 
     //Methode om item in gantry te plaatsen in slot
     public void placeItemInSlot(Gantry gantry, Slot slot) {
         if (!slot.isAvailable() && !slot.equals(OUTPUT_SLOT)) System.out.println("ERROR SLOT NOT AVAILABLE PLACE");
-        executedMoves.add(gantry.placeItem(slot));
+        gantry.addMove(gantry.placeItem(slot));
         updateSlots();
     }
 
@@ -193,25 +191,23 @@ public class Problem {
         });
     }
 
-    public void printMoves() {
-        for (Move m : executedMoves) {
-            System.out.println(m.toString());
-        }
-    }
-
     public void createCSV(String OUTPUT_FILENAME) throws IOException {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
         String header = "gID;T;x;y;itemInCraneID\n";
 
+        Gantry input_gantry = gantries.get(0);
+        //Gantry output_gantry = gantries.get(1);
+
+
         pw.write(header);
 
-        for (Move m : executedMoves) {
+        for (Move m : input_gantry.getExecutedMoves()) {
             pw.write(m.toString());
             pw.write("\n");
         }
 
         pw.close();
-        clearExecutedMoves();
+        input_gantry.clearMoves();
     }
 
     public void setInputOutputSlots() {
@@ -225,8 +221,8 @@ public class Problem {
         }
     }
 
-    public void clearExecutedMoves() {
-        this.executedMoves.clear();
+    public void clearExecutedMoves(Gantry gantry) {
+        gantry.clearMoves();
     }
 
     public List<Gantry> getGantries() {
