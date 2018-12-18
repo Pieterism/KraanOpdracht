@@ -210,13 +210,21 @@ public class Gantry {
     }
 
     public Move getNextInputGantryMove(double time) {
-        return this.executedMoves.stream().filter(move -> move.getTime() > time).findFirst().orElse(null);
+        //TODO LAST MOVE!
+        Move m = this.executedMoves.stream().filter(move -> move.getTime() > time && move.getX() == -15 && move.getItem() == null).findFirst().orElse(null);
+        if (m == null) {
+            System.out.println("ERROR NEXTINPUT");
+        }
+        return m;
+        //return this.executedMoves.stream().filter(move -> move.getTime() > time && move.getX() == -15 && move.getItem() ==  null).findFirst().orElse(null);
     }
 
 
-    public Move getPreviousInputGantryMove(double time) {
-        Move move = getNextInputGantryMove(time);
-        return this.executedMoves.get(this.executedMoves.indexOf(move) -1);
+    public Move getPreviousInputGantryMove(Move move) {
+        if (move == null) {
+            System.out.println("no next move error");
+        }
+        return this.executedMoves.get(this.executedMoves.indexOf(move) - 3);
     }
 }
 

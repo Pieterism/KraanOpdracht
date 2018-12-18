@@ -75,27 +75,49 @@ public class Problem {
                 if (getOutputJob(item) == null) inputItem(input_gantry, getClosestAvailableSlot(new Slot(0, 0)));
                 else inputItem(input_gantry, getClosestAvailableSlot(new Slot(500, 0)));
             });
+            placeItemInSlot(input_gantry, INPUT_SLOT);
 
-            outputJobSequence.forEach(job -> {
+            for (Job job : outputJobSequence) {
                 Item item = job.getItem();
                 outputItem(output_gantry, getSlot(item));
 
                 //TODO
                 double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
                 Move outputMove = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().size() - 3);
+                Move outputPlaceMove = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().size() - 2);
                 double time = outputMove.getTime();
                 if (time <= maxInputTime) {
                     Move inputNextMove = input_gantry.getNextInputGantryMove(time);
-                    Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(time);
-                    System.out.println("-----------------------------------------");
-                    System.out.println("Output: " + outputMove.getX() + ", " + outputMove.getY() + " | " + outputMove.getTime());
-                    System.out.println("Input Previous: " + inputPreviousMove.getX() + ", " + inputPreviousMove.getY() + " | " + inputPreviousMove.getTime());
-                    System.out.println("Input Next: " + inputNextMove.getX() + ", " + inputNextMove.getY() + " | " + inputNextMove.getTime());
-                    System.out.println();
+                    if (inputNextMove == null) break;
+                    Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(inputNextMove);
+                    Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
+
+                    if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputMove, outputPlaceMove)) {
+                        System.out.println("-----------------------------------------");
+                        System.out.println("Output Place: " + outputPlaceMove.getX() + ", " + outputPlaceMove.getY() + " | " + outputPlaceMove.getTime());
+                        System.out.println("Output Pickup: " + outputMove.getX() + ", " + outputMove.getY() + " | " + outputMove.getTime());
+                        System.out.println("Input Previous: " + inputPreviousMove.getX() + ", " + inputPreviousMove.getY() + " | " + inputPreviousMove.getTime());
+                        System.out.println("Input Place: " + inputPlace.getX() + ", " + inputPlace.getY() + " | " + inputPlace.getTime());
+                        System.out.println("Input Next: " + inputNextMove.getX() + ", " + inputNextMove.getY() + " | " + inputNextMove.getTime());
+                        System.out.println();
+                    }
+
+
                 }
-                
-            });
+
+            }
         }
+    }
+
+    private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
+        if (inputplace.getX() > outputMove.getX()) {
+            if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
+                if (outputPlace.getTime() > inputplace.getTime() +50){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //TODO: executedMoves lijst= tijden aanpassen zodat gantries elkaar niet overschrijden
