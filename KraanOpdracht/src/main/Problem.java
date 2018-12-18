@@ -57,11 +57,8 @@ public class Problem {
             });
             outputJobSequence.forEach(job -> {
                 Item item = job.getItem();
-                if (getSlot(item) == null) {
-                    restingOutputJobs.add(job);
-                } else {
-                    outputItem(gantry, getSlot(item));
-                }
+                outputItem(gantry, getSlot(item));
+
             });
         } else if (this.gantries.size() == 2) {
             Gantry input_gantry = gantries.get(0);
@@ -71,10 +68,50 @@ public class Problem {
             Move output_start = new Move(output_gantry, output_gantry.getStartX(), output_gantry.getStartY());
             input_gantry.addMove(input_start);
             output_gantry.addMove(output_start);
+
+            inputJobSequence.forEach(job -> {
+                Item item = job.getItem();
+                INPUT_SLOT.setItem(item);
+                if (getOutputJob(item) == null) inputItem(input_gantry, getClosestAvailableSlot(new Slot(0, 0)));
+                else inputItem(input_gantry, getClosestAvailableSlot(new Slot(500, 0)));
+            });
+
+            outputJobSequence.forEach(job -> {
+                Item item = job.getItem();
+                outputItem(output_gantry, getSlot(item));
+
+                //TODO
+                double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
+                Move outputMove = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().size() - 3);
+                double time = outputMove.getTime();
+                if (time <= maxInputTime) {
+                    Move inputNextMove = input_gantry.getNextInputGantryMove(time);
+                    Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(time);
+                    System.out.println("-----------------------------------------");
+                    System.out.println("Output: " + outputMove.getX() + ", " + outputMove.getY() + " | " + outputMove.getTime());
+                    System.out.println("Input Previous: " + inputPreviousMove.getX() + ", " + inputPreviousMove.getY() + " | " + inputPreviousMove.getTime());
+                    System.out.println("Input Next: " + inputNextMove.getX() + ", " + inputNextMove.getY() + " | " + inputNextMove.getTime());
+                    System.out.println();
+                }
+                
+            });
         }
     }
 
-    private Job getOutputJob(Item item) {
+    //TODO: executedMoves lijst= tijden aanpassen zodat gantries elkaar niet overschrijden
+    public void updateGantryTimes(Gantry g, int fromIndex, double time) {
+        g.getExecutedMoves().stream().forEach(move -> {
+            if (g.getExecutedMoves().indexOf(move) >= fromIndex) {
+                move.setTime(move.getTime() + time);
+            }
+        });
+    }
+
+    public Job getInputJob(Item item) {
+        return inputJobSequence.stream().filter(job -> job.getItem() == item).findAny().orElse(null);
+    }
+
+    public Job getOutputJob(Item item) {
         return outputJobSequence.stream().filter(job -> job.getItem() == item).findAny().orElse(null);
     }
 
@@ -195,19 +232,38 @@ public class Problem {
         PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILENAME));
         String header = "gID;T;x;y;itemInCraneID\n";
 
-        Gantry input_gantry = gantries.get(0);
-        //Gantry output_gantry = gantries.get(1);
+        if (gantries.size() == 1) {
+            Gantry input_gantry = gantries.get(0);
+            pw.write(header);
 
+            for (Move m : input_gantry.getExecutedMoves()) {
+                pw.write(m.toString());
+                pw.write("\n");
+            }
 
-        pw.write(header);
+            pw.close();
+            input_gantry.clearMoves();
+        } else {
 
-        for (Move m : input_gantry.getExecutedMoves()) {
-            pw.write(m.toString());
-            pw.write("\n");
+            Gantry input_gantry = gantries.get(0);
+            Gantry output_gantry = gantries.get(1);
+
+            pw.write(header);
+
+            for (Move m : input_gantry.getExecutedMoves()) {
+                pw.write(m.toString());
+                pw.write("\n");
+            }
+
+            for (Move m : output_gantry.getExecutedMoves()) {
+                pw.write(m.toString());
+                pw.write("\n");
+            }
+
+            pw.close();
+            input_gantry.clearMoves();
+            output_gantry.clearMoves();
         }
-
-        pw.close();
-        input_gantry.clearMoves();
     }
 
     public void setInputOutputSlots() {

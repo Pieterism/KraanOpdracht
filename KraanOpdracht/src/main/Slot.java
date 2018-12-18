@@ -31,6 +31,20 @@ public class Slot {
         childSlots = new HashSet<>();
     }
 
+    public Slot (int centerX, int centerY){
+        this.id = 0;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.xMin = 0;
+        this.xMax = 0;
+        this.yMin = 0;
+        this.yMax = 0;
+        this.z = 0;
+        this.item = null;
+        this.type = null;
+        parentSlots = new HashSet<>();
+        childSlots = new HashSet<>();
+    }
     public int getId() {
         return id;
     }

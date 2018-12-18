@@ -185,14 +185,39 @@ public class Gantry {
         return getMove();
     }
 
-    private Move getMove() {
+    public Move getMove() {
         this.time += 10;
         Gantry g = copy();
         Move move = new Move(g, this.x, this.y);
         return move;
     }
 
+    public List<Move> getMovesAtTimeIndex(double time) {
+        List<Move> result = new ArrayList<>();
+        Move tempmove = null;
+        double delta = 1000;
+        for (Move move : this.executedMoves) {
+            double d = Math.abs(time - move.time);
+            if (d < delta && !(move.getX() == -15) && !(move.getItem() == null)) {
+                tempmove = move;
+                delta = d;
+            }
+        }
+        result.add(this.executedMoves.get(this.executedMoves.indexOf(tempmove) - 1));
+        result.add(this.executedMoves.get(this.executedMoves.indexOf(tempmove) + 2));
 
+        return result;
+    }
+
+    public Move getNextInputGantryMove(double time) {
+        return this.executedMoves.stream().filter(move -> move.getTime() > time).findFirst().orElse(null);
+    }
+
+
+    public Move getPreviousInputGantryMove(double time) {
+        Move move = getNextInputGantryMove(time);
+        return this.executedMoves.get(this.executedMoves.indexOf(move) -1);
+    }
 }
 
 

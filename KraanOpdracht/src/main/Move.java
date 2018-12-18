@@ -23,11 +23,11 @@ public class Move {
         this.destinationX = destinationX;
     }
 
-    public int getDestinationY() {
+    public int getY() {
         return destinationY;
     }
 
-    public void setDestinationY(int destinationY) {
+    public void setY(int destinationY) {
         this.destinationY = destinationY;
     }
 
