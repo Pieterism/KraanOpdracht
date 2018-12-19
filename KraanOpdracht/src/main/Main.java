@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-        String INPUT_FILENAME = "2_10_100_4_FALSE_65_50_50.json";
+        String INPUT_FILENAME = "2_10_100_4_TRUE_65_50_50.json";
         String OUTPUT_FILENAME = "Output_Kraanopdracht_Groep4.csv";
         try {
 
