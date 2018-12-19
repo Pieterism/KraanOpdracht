@@ -51,13 +51,12 @@ public class Problem {
             inputJobSequence.forEach(job -> {
                 Item item = job.getItem();
                 INPUT_SLOT.setItem(item);
-                if (getOutputJob(item) == null) inputItem(gantry, getClosestAvailableSlot(INPUT_SLOT));
-                else inputItem(gantry, OUTPUT_SLOT);
+                inputItem(gantry, availableSlots.get(0));
+
             });
             outputJobSequence.forEach(job -> {
                 Item item = job.getItem();
                 outputItem(gantry, getSlot(item));
-
             });
         } else if (this.gantries.size() == 2) {
             Gantry input_gantry = gantries.get(0);
@@ -74,7 +73,7 @@ public class Problem {
                 if (getOutputJob(item) == null) inputItem(input_gantry, getClosestAvailableSlot(new Slot(0, 0)));
                 else inputItem(input_gantry, getClosestAvailableSlot(new Slot(500, 0)));
             });
-            placeItemInSlot(input_gantry, INPUT_SLOT);
+            moveGantry(input_gantry, INPUT_SLOT);
 
             for (Job job : outputJobSequence) {
                 Item item = job.getItem();
@@ -123,7 +122,7 @@ public class Problem {
 
                 if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)) {
                     Move outputPickup = output_gantry.getPreviousOutputPlaceMove(outputmove);
-                    double waittime = inputNextMove.getTime() - output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)-1).getTime();
+                    double waittime = inputNextMove.getTime() - output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove) - 1).getTime();
                     updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputPickup), waittime);
                 }
 
@@ -132,7 +131,7 @@ public class Problem {
     }
 
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
-        if (inputplace.getX() > outputMove.getX()-20) {
+        if (inputplace.getX() > outputMove.getX() - 20) {
             if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
                 if (outputPlace.getTime() > inputplace.getTime()) {
                     return true;
@@ -248,7 +247,7 @@ public class Problem {
     }
 
     public void inputItem(Gantry gantry, Slot s) {
-        moveItem(gantry, INPUT_SLOT, availableSlots.get(0));
+        moveItem(gantry, INPUT_SLOT, s);
     }
 
     public void outputItem(Gantry gantry, Slot s) {

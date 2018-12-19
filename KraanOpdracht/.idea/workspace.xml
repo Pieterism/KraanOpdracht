@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08b949cb-b0a5-4525-963e-30a1b6a9b2c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Problem.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="170">
+              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,33 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="137" column="34" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
+            <state relative-caret-position="381">
+              <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
               <folding>
                 <element signature="method#Problem#0;class#Problem#0" />
-                <element signature="method#getInputJob#0;class#Problem#0" />
-                <element signature="method#getOutputJob#0;class#Problem#0" />
-                <element signature="e#4780#4816#1" />
-                <element signature="e#7647#7648#0" expanded="true" />
-                <element signature="method#createSlotField#0;class#Problem#0" />
-                <element signature="method#updateSlots#0;class#Problem#0" />
-                <element signature="method#getSlot#0;class#Problem#0" />
-                <element signature="method#getClosestAvailableSlot#0;class#Problem#0" />
-                <element signature="method#moveGantry#0;class#Problem#0" />
-                <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
-                <element signature="method#placeItemInSlot#0;class#Problem#0" />
-                <element signature="method#moveItem#0;class#Problem#0" />
-                <element signature="e#7955#8023#1" />
-                <element signature="e#10854#10855#0" expanded="true" />
-                <element signature="method#outputItem#0;class#Problem#0" />
+                <element signature="e#7479#7480#0" expanded="true" />
+                <element signature="e#10666#10667#0" expanded="true" />
                 <element signature="method#moveParents#0;class#Problem#0" />
                 <element signature="method#createCSV#0;class#Problem#0" />
                 <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-                <element signature="e#13053#13054#0" expanded="true" />
-                <element signature="e#13130#13131#0" expanded="true" />
+                <element signature="e#12865#12866#0" expanded="true" />
+                <element signature="e#12942#12943#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,55 +52,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Gantry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="233" lean-forward="true" selection-start-line="233" selection-end-line="233" />
+            <state relative-caret-position="2890">
+              <caret line="222" selection-start-line="222" selection-end-line="222" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#343#768#0" />
-                <element signature="e#2099#2100#0" expanded="true" />
-                <element signature="e#2140#2141#0" expanded="true" />
-                <element signature="e#2265#2266#0" expanded="true" />
-                <element signature="e#2318#2319#0" expanded="true" />
-                <element signature="e#2767#3035#0" />
-                <element signature="e#3041#3517#0" />
-                <element signature="e#3523#3720#0" />
-                <element signature="e#3726#3932#0" />
-                <element signature="e#3938#4089#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Job.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding>
-                <element signature="method#toString#0;class#Task#0;class#Job#0" />
-                <element signature="class#TaskType#0;class#Job#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Move.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-              <folding>
-                <element signature="method#toString#0;class#Move#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Output_Kraanopdracht_Groep4.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="206" column="18" lean-forward="true" selection-start-line="206" selection-start-column="18" selection-end-line="206" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -157,10 +100,10 @@
         <option value="$PROJECT_DIR$/src/main/ProblemFactory.java" />
         <option value="$PROJECT_DIR$/1_10_100_5_FALSE_65_65_100.json" />
         <option value="$PROJECT_DIR$/src/main/Slot.java" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/Move.java" />
         <option value="$PROJECT_DIR$/src/main/Gantry.java" />
         <option value="$PROJECT_DIR$/src/main/Problem.java" />
+        <option value="$PROJECT_DIR$/src/main/Main.java" />
       </list>
     </option>
   </component>
@@ -205,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545229145330" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545237784862" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -294,7 +237,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142660000" />
+    <option name="totallyTimeSpent" value="143327000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -330,7 +273,6 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.32502708" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -341,6 +283,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" id="Maven" order="9" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="10" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
@@ -384,9 +327,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
-          <line>128</line>
+          <line>127</line>
           <properties />
           <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -560,62 +509,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Gantry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="233" lean-forward="true" selection-start-line="233" selection-end-line="233" />
+        <state relative-caret-position="2890">
+          <caret line="222" selection-start-line="222" selection-end-line="222" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#343#768#0" />
-            <element signature="e#2099#2100#0" expanded="true" />
-            <element signature="e#2140#2141#0" expanded="true" />
-            <element signature="e#2265#2266#0" expanded="true" />
-            <element signature="e#2318#2319#0" expanded="true" />
-            <element signature="e#2767#3035#0" />
-            <element signature="e#3041#3517#0" />
-            <element signature="e#3523#3720#0" />
-            <element signature="e#3726#3932#0" />
-            <element signature="e#3938#4089#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="137" column="34" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
+        <state relative-caret-position="381">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
           <folding>
             <element signature="method#Problem#0;class#Problem#0" />
-            <element signature="method#getInputJob#0;class#Problem#0" />
-            <element signature="method#getOutputJob#0;class#Problem#0" />
-            <element signature="e#4780#4816#1" />
-            <element signature="e#7647#7648#0" expanded="true" />
-            <element signature="method#createSlotField#0;class#Problem#0" />
-            <element signature="method#updateSlots#0;class#Problem#0" />
-            <element signature="method#getSlot#0;class#Problem#0" />
-            <element signature="method#getClosestAvailableSlot#0;class#Problem#0" />
-            <element signature="method#moveGantry#0;class#Problem#0" />
-            <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
-            <element signature="method#placeItemInSlot#0;class#Problem#0" />
-            <element signature="method#moveItem#0;class#Problem#0" />
-            <element signature="e#7955#8023#1" />
-            <element signature="e#10854#10855#0" expanded="true" />
-            <element signature="method#outputItem#0;class#Problem#0" />
+            <element signature="e#7479#7480#0" expanded="true" />
+            <element signature="e#10666#10667#0" expanded="true" />
             <element signature="method#moveParents#0;class#Problem#0" />
             <element signature="method#createCSV#0;class#Problem#0" />
             <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-            <element signature="e#13053#13054#0" expanded="true" />
-            <element signature="e#13130#13131#0" expanded="true" />
+            <element signature="e#12865#12866#0" expanded="true" />
+            <element signature="e#12942#12943#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
