@@ -102,13 +102,11 @@ public class Problem {
                 }*/
             }
 
-            updateMovesTimes (input_gantry, output_gantry);
-
+            updateMovesTimes(input_gantry, output_gantry);
         }
     }
 
     private void updateMovesTimes(Gantry input_gantry, Gantry output_gantry) {
-        //TODO: methode schrijven die dit correct uitvoert
         //2 movelijsten vergelijken, bij elke move tijden en locaties vergelijken en eventueel aanpassen om feasible te maken
         List<Move> outputPickupMoves = output_gantry.getExecutedMoves().stream().filter(move -> !(move.getItem() == null) && move.getX() < 1015).collect(Collectors.toList());
 
@@ -121,27 +119,22 @@ public class Problem {
                 if (inputNextMove == null) break;
                 Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(inputNextMove);
                 Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
-                Move outputPlace = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)+ 1);
+                Move outputPlace = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove) + 1);
 
-
-                if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)){
+                if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)) {
                     Move outputPickup = output_gantry.getPreviousOutputPlaceMove(outputmove);
-                    double waittime = inputNextMove.getTime() -  outputmove.getTime();
+                    double waittime = inputNextMove.getTime() - output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)-1).getTime();
                     updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputPickup), waittime);
-                    //TODO kijken voor resterende collisions!
-                    System.out.println("debug1");
-
                 }
 
             }
         }
     }
 
-    //TODO: aanpassen zodat hij echt alle mogelijke collisions vindt
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
-        if (inputplace.getX() > outputMove.getX()) {
+        if (inputplace.getX() > outputMove.getX()-20) {
             if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
-                if (outputPlace.getTime() > inputplace.getTime() +25){
+                if (outputPlace.getTime() > inputplace.getTime()) {
                     return true;
                 }
             }
