@@ -33,15 +33,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="117" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="323">
+              <caret line="130" column="17" lean-forward="true" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
               <folding>
                 <element signature="method#Problem#0;class#Problem#0" />
-                <element signature="method#isCollision#0;class#Problem#0" />
-                <element signature="method#updateGantryTimes#0;class#Problem#0" />
                 <element signature="method#getInputJob#0;class#Problem#0" />
                 <element signature="method#getOutputJob#0;class#Problem#0" />
                 <element signature="e#4780#4816#1" />
+                <element signature="e#7512#7513#0" expanded="true" />
                 <element signature="method#createSlotField#0;class#Problem#0" />
                 <element signature="method#updateSlots#0;class#Problem#0" />
                 <element signature="method#getSlot#0;class#Problem#0" />
@@ -51,13 +50,13 @@
                 <element signature="method#placeItemInSlot#0;class#Problem#0" />
                 <element signature="method#moveItem#0;class#Problem#0" />
                 <element signature="e#7955#8023#1" />
-                <element signature="e#9762#9763#0" expanded="true" />
+                <element signature="e#10719#10720#0" expanded="true" />
                 <element signature="method#outputItem#0;class#Problem#0" />
                 <element signature="method#moveParents#0;class#Problem#0" />
                 <element signature="method#createCSV#0;class#Problem#0" />
                 <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-                <element signature="e#11961#11962#0" expanded="true" />
-                <element signature="e#12038#12039#0" expanded="true" />
+                <element signature="e#12918#12919#0" expanded="true" />
+                <element signature="e#12995#12996#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -208,7 +207,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545214592142" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545221055598" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -287,7 +286,7 @@
       <workItem from="1544877501174" duration="22910000" />
       <workItem from="1544950918929" duration="8755000" />
       <workItem from="1545037922601" duration="38952000" />
-      <workItem from="1545164636259" duration="14756000" />
+      <workItem from="1545164636259" duration="19427000" />
     </task>
     <servers />
   </component>
@@ -297,7 +296,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134310000" />
+    <option name="totallyTimeSpent" value="138981000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,6 +309,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -332,6 +332,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.32502708" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -385,24 +386,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
-          <line>117</line>
+          <line>126</line>
           <properties />
-          <option name="timeStamp" value="114" />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Problem.java</url>
+          <line>115</line>
+          <properties />
+          <option name="timeStamp" value="121" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="outputLine.intersectsLine(inputLine)" language="JAVA" />
-        <watch expression="outputLine" />
         <watch expression="maxInputTime" />
-        <watch expression="((Float)inputLine).y1" custom="java.awt.geom.Line2D.Float" />
         <watch expression="outputPickupMoves.get(3)" />
+        <watch expression="isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>outputLine.intersectsLine(inputLine)</expression-string>
         <language-id>JAVA</language-id>
@@ -445,11 +455,6 @@
       </expression>
       <expression>
         <expression-string>getSlot(new Item(898))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>slot.isTopSlot()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -596,15 +601,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="323">
+          <caret line="130" column="17" lean-forward="true" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
           <folding>
             <element signature="method#Problem#0;class#Problem#0" />
-            <element signature="method#isCollision#0;class#Problem#0" />
-            <element signature="method#updateGantryTimes#0;class#Problem#0" />
             <element signature="method#getInputJob#0;class#Problem#0" />
             <element signature="method#getOutputJob#0;class#Problem#0" />
             <element signature="e#4780#4816#1" />
+            <element signature="e#7512#7513#0" expanded="true" />
             <element signature="method#createSlotField#0;class#Problem#0" />
             <element signature="method#updateSlots#0;class#Problem#0" />
             <element signature="method#getSlot#0;class#Problem#0" />
@@ -614,13 +618,13 @@
             <element signature="method#placeItemInSlot#0;class#Problem#0" />
             <element signature="method#moveItem#0;class#Problem#0" />
             <element signature="e#7955#8023#1" />
-            <element signature="e#9762#9763#0" expanded="true" />
+            <element signature="e#10719#10720#0" expanded="true" />
             <element signature="method#outputItem#0;class#Problem#0" />
             <element signature="method#moveParents#0;class#Problem#0" />
             <element signature="method#createCSV#0;class#Problem#0" />
             <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-            <element signature="e#11961#11962#0" expanded="true" />
-            <element signature="e#12038#12039#0" expanded="true" />
+            <element signature="e#12918#12919#0" expanded="true" />
+            <element signature="e#12995#12996#0" expanded="true" />
           </folding>
         </state>
       </provider>

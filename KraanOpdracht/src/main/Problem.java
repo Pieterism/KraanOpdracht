@@ -111,17 +111,33 @@ public class Problem {
         //TODO: methode schrijven die dit correct uitvoert
         //2 movelijsten vergelijken, bij elke move tijden en locaties vergelijken en eventueel aanpassen om feasible te maken
         List<Move> outputPickupMoves = output_gantry.getExecutedMoves().stream().filter(move -> !(move.getItem() == null) && move.getX() < 1015).collect(Collectors.toList());
-        List<Move> inputPlaceMoves = input_gantry.getExecutedMoves().stream().filter(move -> move.getItem() == null && move.getX()> -15).collect(Collectors.toList());
 
+        for (Move outputmove : outputPickupMoves) {
+            double time = outputmove.getTime();
+            double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
 
+            if (time <= maxInputTime) {
+                Move inputNextMove = input_gantry.getNextInputGantryMove(time);
+                if (inputNextMove == null) break;
+                Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(inputNextMove);
+                Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
+                Move outputPlace = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)+ 1);
 
-        System.out.println("debug");
+                if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)){
+                    double waittime = inputNextMove.getTime() -  outputmove.getTime();
+                    updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputmove)-2, waittime);
+                    System.out.println("debug1");
+
+                }
+
+            }
+        }
     }
 
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
         if (inputplace.getX() > outputMove.getX()) {
             if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
-                if (outputPlace.getTime() > inputplace.getTime() +50){
+                if (outputPlace.getTime() > inputplace.getTime() +25){
                     return true;
                 }
             }
