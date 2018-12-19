@@ -51,8 +51,8 @@ public class Problem {
             inputJobSequence.forEach(job -> {
                 Item item = job.getItem();
                 INPUT_SLOT.setItem(item);
-                inputItem(gantry, availableSlots.get(0));
-
+                if (getOutputJob(item) == null) inputItem(gantry, getClosestAvailableSlot(INPUT_SLOT));
+                else inputItem(gantry, OUTPUT_SLOT);
             });
             outputJobSequence.forEach(job -> {
                 Item item = job.getItem();
@@ -132,6 +132,7 @@ public class Problem {
 
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
         if (inputplace.getX() > outputMove.getX() - 20) {
+
             if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
                 if (outputPlace.getTime() > inputplace.getTime()) {
                     return true;
@@ -247,7 +248,7 @@ public class Problem {
     }
 
     public void inputItem(Gantry gantry, Slot s) {
-        moveItem(gantry, INPUT_SLOT, s);
+        moveItem(gantry, INPUT_SLOT, availableSlots.get(0));
     }
 
     public void outputItem(Gantry gantry, Slot s) {
