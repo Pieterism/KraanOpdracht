@@ -126,6 +126,7 @@ public class Problem {
                 if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)){
                     double waittime = inputNextMove.getTime() -  outputmove.getTime();
                     updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputmove)-2, waittime);
+                    //TODO kijken voor resterende collisions!
                     System.out.println("debug1");
 
                 }
@@ -134,6 +135,7 @@ public class Problem {
         }
     }
 
+    //TODO: aanpassen zodat hij echt alle mogelijke collisions vindt
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
         if (inputplace.getX() > outputMove.getX()) {
             if (previousPickup.getTime() < outputMove.getTime() && nextPickup.getTime() > outputMove.getTime()) {
