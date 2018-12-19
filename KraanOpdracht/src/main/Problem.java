@@ -70,8 +70,7 @@ public class Problem {
             inputJobSequence.forEach(job -> {
                 Item item = job.getItem();
                 INPUT_SLOT.setItem(item);
-                if (getOutputJob(item) == null) inputItem(input_gantry, getClosestAvailableSlot(new Slot(500, 0)));
-                else inputItem(input_gantry, getClosestAvailableSlot(new Slot(500, 0)));
+                inputItem(input_gantry, availableSlots.get(0));
             });
             moveGantry(input_gantry, INPUT_SLOT);
 
@@ -110,17 +109,15 @@ public class Problem {
         List<Move> outputPickupMoves = output_gantry.getExecutedMoves().stream().filter(move -> !(move.getItem() == null) && move.getX() < 1015).collect(Collectors.toList());
 
         for (Move outputmove : outputPickupMoves) {
-            checkCollisions(input_gantry, output_gantry, outputmove);
+        checkCollisions(input_gantry, output_gantry, outputmove);
         }
     }
 
     public void checkCollisions (Gantry input_gantry, Gantry output_gantry, Move outputmove){
         double time = outputmove.getTime();
         double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
-
-        if (time <= maxInputTime) {
-            Move inputNextMove = input_gantry.getNextInputGantryMove(time);
-            if (inputNextMove == null) return;
+        Move inputNextMove = input_gantry.getNextInputGantryMove(time);
+        if (time <= maxInputTime && !(inputNextMove == null)) {
             Move inputPreviousMove = input_gantry.getPreviousInputGantryMove(inputNextMove);
             Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
             Move outputPlace = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove) + 1);
@@ -130,11 +127,7 @@ public class Problem {
                 double waittime = inputNextMove.getTime() - output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)-1).getTime();
                 updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputPickup), waittime);
                 System.out.println(" debug ");
-                while (isCollision(input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove)+4), input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPlace)+4), input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputNextMove)+4), outputPickup, outputPlace )){
-                    outputPickup = output_gantry.getPreviousOutputPlaceMove(outputPickup);
-                    System.out.println("collision");
 
-                }
             }
 
         }
