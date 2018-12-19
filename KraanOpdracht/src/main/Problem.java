@@ -123,9 +123,11 @@ public class Problem {
                 Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
                 Move outputPlace = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().indexOf(outputmove)+ 1);
 
+
                 if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputmove, outputPlace)){
+                    Move outputPickup = output_gantry.getPreviousOutputPlaceMove(outputmove);
                     double waittime = inputNextMove.getTime() -  outputmove.getTime();
-                    updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputmove)-2, waittime);
+                    updateGantryTimes(output_gantry, output_gantry.getExecutedMoves().indexOf(outputPickup), waittime);
                     //TODO kijken voor resterende collisions!
                     System.out.println("debug1");
 

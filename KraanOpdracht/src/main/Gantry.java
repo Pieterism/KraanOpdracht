@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Gantry {
 
@@ -218,10 +219,8 @@ public class Gantry {
     }
 
     public Move getPreviousOutputPlaceMove(Move outputmove) {
-        if (outputmove == null) {
-            System.out.println("no next move error");
-        }
-        return this.executedMoves.get(this.executedMoves.indexOf(outputmove) - 2);
+        List<Move> previousPlaceMoves = this.getExecutedMoves().stream().filter(move -> move.getTime() < outputmove.getTime() && move.getX() == 1015 && move.getItem() == null).collect(Collectors.toList());
+        return previousPlaceMoves.get(previousPlaceMoves.size()-1);
     }
 
 
