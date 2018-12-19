@@ -210,13 +210,18 @@ public class Gantry {
     }
 
     public Move getNextInputGantryMove(double time) {
-        //TODO LAST MOVE!
         Move m = this.executedMoves.stream().filter(move -> move.getTime() > time && move.getX() == -15 && move.getItem() == null).findFirst().orElse(null);
         if (m == null) {
             System.out.println("ERROR NEXTINPUT");
         }
         return m;
-        //return this.executedMoves.stream().filter(move -> move.getTime() > time && move.getX() == -15 && move.getItem() ==  null).findFirst().orElse(null);
+    }
+
+    public Move getPreviousOutputPlaceMove(Move outputmove) {
+        if (outputmove == null) {
+            System.out.println("no next move error");
+        }
+        return this.executedMoves.get(this.executedMoves.indexOf(outputmove) - 2);
     }
 
 

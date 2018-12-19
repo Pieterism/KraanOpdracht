@@ -38,7 +38,6 @@ public class Problem {
         createSlotField();
     }
 
-    //TODO
     //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
     public void solve() {
         List<Job> restingOutputJobs = new ArrayList<>();
@@ -81,8 +80,8 @@ public class Problem {
                 Item item = job.getItem();
                 outputItem(output_gantry, getSlot(item));
 
-                //TODO
-                double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
+                //TODO: code in commentaar haalt enkele collisions eruit, maar niet allemaal dus niet voldoende
+/*                double maxInputTime = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().size() - 1).getTime();
                 Move outputMove = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().size() - 3);
                 Move outputPlaceMove = output_gantry.getExecutedMoves().get(output_gantry.getExecutedMoves().size() - 2);
                 double time = outputMove.getTime();
@@ -93,20 +92,24 @@ public class Problem {
                     Move inputPlace = input_gantry.getExecutedMoves().get(input_gantry.getExecutedMoves().indexOf(inputPreviousMove) + 1);
 
                     if (isCollision(inputPreviousMove, inputPlace, inputNextMove, outputMove, outputPlaceMove)) {
-                        System.out.println("-----------------------------------------");
-                        System.out.println("Output Place: " + outputPlaceMove.getX() + ", " + outputPlaceMove.getY() + " | " + outputPlaceMove.getTime());
-                        System.out.println("Output Pickup: " + outputMove.getX() + ", " + outputMove.getY() + " | " + outputMove.getTime());
-                        System.out.println("Input Previous: " + inputPreviousMove.getX() + ", " + inputPreviousMove.getY() + " | " + inputPreviousMove.getTime());
-                        System.out.println("Input Place: " + inputPlace.getX() + ", " + inputPlace.getY() + " | " + inputPlace.getTime());
-                        System.out.println("Input Next: " + inputNextMove.getX() + ", " + inputNextMove.getY() + " | " + inputNextMove.getTime());
-                        System.out.println();
+                        double waitTime = inputPlace.getTime() - output_gantry.getPreviousOutputPlaceMove(outputMove).getTime();
+                        for (int i = output_gantry.getExecutedMoves().indexOf(output_gantry.getPreviousOutputPlaceMove(outputMove)); i < output_gantry.getExecutedMoves().size()-1; i++){
+                            output_gantry.getExecutedMoves().get(i).setTime(output_gantry.getExecutedMoves().get(i).getTime() + waitTime);
+                        }
+                        output_gantry.setTime(output_gantry.getTime() + waitTime);
+
                     }
-
-
-                }
-
+                }*/
             }
+
+            updateMovesTimes (input_gantry, output_gantry);
+
         }
+    }
+
+    private void updateMovesTimes(Gantry input_gantry, Gantry output_gantry) {
+        //TODO: methode schrijven die dit correct uitvoert
+        //2 movelijsten vergelijken, bij elke move tijden en locaties vergelijken en eventueel aanpassen om feasible te maken
     }
 
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
@@ -120,7 +123,6 @@ public class Problem {
         return false;
     }
 
-    //TODO: executedMoves lijst= tijden aanpassen zodat gantries elkaar niet overschrijden
     public void updateGantryTimes(Gantry g, int fromIndex, double time) {
         g.getExecutedMoves().stream().forEach(move -> {
             if (g.getExecutedMoves().indexOf(move) >= fromIndex) {

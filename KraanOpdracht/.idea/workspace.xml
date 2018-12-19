@@ -34,11 +34,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+            <state relative-caret-position="190">
+              <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
               <folding>
                 <element signature="method#Problem#0;class#Problem#0" />
-                <element signature="e#6168#6169#0" expanded="true" />
+                <element signature="e#6177#6178#0" expanded="true" />
                 <element signature="method#createSlotField#0;class#Problem#0" />
                 <element signature="method#updateSlots#0;class#Problem#0" />
                 <element signature="method#getSlot#0;class#Problem#0" />
@@ -47,11 +47,11 @@
                 <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
                 <element signature="method#placeItemInSlot#0;class#Problem#0" />
                 <element signature="method#moveItem#0;class#Problem#0" />
-                <element signature="e#9375#9376#0" expanded="true" />
+                <element signature="e#9384#9385#0" expanded="true" />
                 <element signature="method#moveParents#0;class#Problem#0" />
                 <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-                <element signature="e#11574#11575#0" expanded="true" />
-                <element signature="e#11651#11652#0" expanded="true" />
+                <element signature="e#11583#11584#0" expanded="true" />
+                <element signature="e#11660#11661#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Gantry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="215" selection-start-line="215" selection-end-line="215" />
+            <state relative-caret-position="299">
+              <caret line="211" column="52" selection-start-line="211" selection-start-column="52" selection-end-line="211" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#343#768#0" />
@@ -72,6 +72,10 @@
                 <element signature="e#3041#3517#0" />
                 <element signature="e#3523#3720#0" />
                 <element signature="e#3726#3932#0" />
+                <element signature="e#3938#4089#0" />
+                <element signature="e#4726#5226#0" />
+                <element signature="e#5232#5458#0" />
+                <element signature="e#5233#5459#0" />
               </folding>
             </state>
           </provider>
@@ -146,10 +150,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="99" />
-    <option name="y" value="-828" />
-    <option name="width" value="1552" />
-    <option name="height" value="880" />
+    <option name="x" value="161" />
+    <option name="y" value="-900" />
+    <option name="width" value="1547" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -186,7 +190,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545173719686" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545212181404" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -265,7 +269,7 @@
       <workItem from="1544877501174" duration="22910000" />
       <workItem from="1544950918929" duration="8755000" />
       <workItem from="1545037922601" duration="38952000" />
-      <workItem from="1545164636259" duration="8960000" />
+      <workItem from="1545164636259" duration="12756000" />
     </task>
     <servers />
   </component>
@@ -275,7 +279,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128514000" />
+    <option name="totallyTimeSpent" value="132310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,7 +292,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1088" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16151386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -300,11 +303,11 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.5124594" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.3163597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4496208" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4989339" weight="0.32719395" />
@@ -360,16 +363,6 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Gantry.java</url>
-          <line>215</line>
-          <properties />
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="outputLine.intersectsLine(inputLine)" language="JAVA" />
@@ -553,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Gantry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        <state relative-caret-position="299">
+          <caret line="211" column="52" selection-start-line="211" selection-start-column="52" selection-end-line="211" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#343#768#0" />
@@ -565,17 +558,21 @@
             <element signature="e#3041#3517#0" />
             <element signature="e#3523#3720#0" />
             <element signature="e#3726#3932#0" />
+            <element signature="e#3938#4089#0" />
+            <element signature="e#4726#5226#0" />
+            <element signature="e#5232#5458#0" />
+            <element signature="e#5233#5459#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        <state relative-caret-position="190">
+          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
           <folding>
             <element signature="method#Problem#0;class#Problem#0" />
-            <element signature="e#6168#6169#0" expanded="true" />
+            <element signature="e#6177#6178#0" expanded="true" />
             <element signature="method#createSlotField#0;class#Problem#0" />
             <element signature="method#updateSlots#0;class#Problem#0" />
             <element signature="method#getSlot#0;class#Problem#0" />
@@ -584,11 +581,11 @@
             <element signature="method#pickupItemFromSlot#0;class#Problem#0" />
             <element signature="method#placeItemInSlot#0;class#Problem#0" />
             <element signature="method#moveItem#0;class#Problem#0" />
-            <element signature="e#9375#9376#0" expanded="true" />
+            <element signature="e#9384#9385#0" expanded="true" />
             <element signature="method#moveParents#0;class#Problem#0" />
             <element signature="method#setInputOutputSlots#0;class#Problem#0" />
-            <element signature="e#11574#11575#0" expanded="true" />
-            <element signature="e#11651#11652#0" expanded="true" />
+            <element signature="e#11583#11584#0" expanded="true" />
+            <element signature="e#11660#11661#0" expanded="true" />
           </folding>
         </state>
       </provider>
