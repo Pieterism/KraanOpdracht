@@ -110,6 +110,12 @@ public class Problem {
     private void updateMovesTimes(Gantry input_gantry, Gantry output_gantry) {
         //TODO: methode schrijven die dit correct uitvoert
         //2 movelijsten vergelijken, bij elke move tijden en locaties vergelijken en eventueel aanpassen om feasible te maken
+        List<Move> outputPickupMoves = output_gantry.getExecutedMoves().stream().filter(move -> !(move.getItem() == null) && move.getX() < 1015).collect(Collectors.toList());
+        List<Move> inputPlaceMoves = input_gantry.getExecutedMoves().stream().filter(move -> move.getItem() == null && move.getX()> -15).collect(Collectors.toList());
+
+
+
+        System.out.println("debug");
     }
 
     private boolean isCollision(Move previousPickup, Move inputplace, Move nextPickup, Move outputMove, Move outputPlace) {
