@@ -210,6 +210,15 @@ public class Gantry {
         return result;
     }
 
+    public Move getPreviousOutput(Move inputPlaceMove) {
+        List<Move> previousPlaceMoves = this.getExecutedMoves().stream().filter(move -> move.getTime() < inputPlaceMove.getTime() && move.getX() == 1015 && move.getItem() == null).collect(Collectors.toList());
+        return previousPlaceMoves.get(previousPlaceMoves.size()-1);
+    }
+
+    public Move getNextOutput(Move inputPlaceMove) {
+        return executedMoves.stream().filter(move -> move.getTime()>inputPlaceMove.getTime() && move.getX() == 1015).findFirst().orElse(null);
+    }
+
     public Move getNextInputGantryMove(double time) {
         Move m = this.executedMoves.stream().filter(move -> move.getTime() > time && move.getX() == -15 && move.getItem() == null).findFirst().orElse(null);
         if (m == null) {
@@ -218,17 +227,23 @@ public class Gantry {
         return m;
     }
 
-    public Move getPreviousOutputPlaceMove(Move outputmove) {
-        List<Move> previousPlaceMoves = this.getExecutedMoves().stream().filter(move -> move.getTime() < outputmove.getTime() && move.getX() == 1015 && move.getItem() == null).collect(Collectors.toList());
-        return previousPlaceMoves.get(previousPlaceMoves.size()-1);
-    }
-
-
     public Move getPreviousInputGantryMove(Move move) {
         if (move == null) {
             System.out.println("no next move error");
         }
         return this.executedMoves.get(this.executedMoves.indexOf(move) - 3);
+    }
+
+    public Move getOutputPickup(Move previousOutput, Move nextOutput) {
+        Move outputPickup = null;
+        int x = 1000;
+        for (Move move : executedMoves.subList(executedMoves.indexOf(previousOutput), executedMoves.indexOf(nextOutput))) {
+            if (move.getX() < x) {
+                x = move.getX();
+                outputPickup = move;
+            }
+        }
+        return outputPickup;
     }
 }
 
