@@ -67,7 +67,8 @@ public class Problem {
             });
 
 
-        } else if (this.gantries.size() == 2) {
+        }
+        else if (this.gantries.size() == 2) {
             Gantry input_gantry = gantries.get(0);
             Gantry output_gantry = gantries.get(1);
 
@@ -76,8 +77,32 @@ public class Problem {
             moveGantry(output_gantry, new Slot(output_gantry.getStartX(), output_gantry.getStartY()));
 
             for (Job outputjob : outputJobSequence) {
-                calibrateTimes(input_gantry, output_gantry);
+                Item item = outputjob.getItem();
+                if (getSlot(item) == null) {
+                    //Item zit nog niet in slotfield dus eerst inputs overlopen tot en met item.
+                    for (int i = inputJobSequence.size(); i > 0; i--) {
+                        Job inputjob = inputJobSequence.get(0);
+                        if (inputjob.getItem() == item) {
+                            INPUT_SLOT.setItem(inputjob.getItem());
+                            inputItem(input_gantry, getClosestAvailableSlot(new Slot(input_gantry.getxMax() / 2, 0)));
+                            outputItem(output_gantry, getSlot(item));
+                            inputJobSequence.remove(inputjob);
+                            break;
+                        } else {
+                            INPUT_SLOT.setItem(inputjob.getItem());
+                            inputItem(input_gantry, availableSlots.get(0));
+                            inputJobSequence.remove(inputjob);
+                        }
+                    }
+                } else outputItem(output_gantry, getSlot(item));
             }
+
+            inputJobSequence.forEach(inputjob -> {
+                INPUT_SLOT.setItem(inputjob.getItem());
+                inputItem(input_gantry, availableSlots.get(0));
+            });
+
+
         }
     }
 
