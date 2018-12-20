@@ -37,7 +37,7 @@ public class Problem {
         createSlotField();
     }
 
-    //oplossing: eerst input doorlopen, achteraf output behandelen + uitprinten als csv
+
     public void solve() {
         if (this.gantries.size() == 1) {
             Gantry gantry = gantries.get(0);
