@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String INPUT_FILENAME = "2_10_100_4_TRUE_65_50_50.json";
+        String INPUT_FILENAME = "1_10_100_4_TRUE_65_50_50.json";
         String OUTPUT_FILENAME = "Output_Kraanopdracht_Groep4.csv";
         try {
 
